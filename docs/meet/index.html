@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.github.io/dj-brij-site/ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Meet the DJ — DJ Bri J</title>
+  <meta name="description" content="Born in Dallas, with roots running deep into Oak Cliff and Tamaulipas, Mexico. The story behind the booth — the kitchen radio, the porch, and every family party in Mexico." />
+  <link rel="canonical" href="https://djbrij.github.io/dj-brij-site/meet/" />
+
+  <meta property="og:title" content="Meet the DJ — DJ Bri J" />
+  <meta property="og:description" content="I was born in Dallas, but my roots run deep into Oak Cliff and Tamaulipas, Mexico." />
+  <meta property="og:image" content="https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg" />
+  <meta property="og:url" content="https://djbrij.github.io/dj-brij-site/meet/" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="DJ Bri J" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://djbrij.github.io/dj-brij-site/#person",
+        "name": "Briana Jasso",
+        "alternateName": "DJ Bri J",
+        "url": "https://djbrij.github.io/dj-brij-site/",
+        "image": "https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg",
+        "jobTitle": "DJ",
+        "description": "Dallas-born DJ with roots in Oak Cliff and Tamaulipas, Mexico, blending 214 Hip-Hop with Latin hits for weddings, quinceañeras, family parties, and brand events.",
+        "disambiguatingDescription": "DJ Bri J is a solo DJ based in Dallas / Fort Worth, Texas, performing at weddings, quinceañeras, birthdays, family parties, and brand events. Not to be confused with any similarly named artist outside the Dallas–Fort Worth area.",
+        "birthPlace": { "@type": "Place", "name": "Dallas, Texas" },
+        "knowsLanguage": ["en", "es"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dallas",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/djbri.j/",
+          "https://www.tiktok.com/@djbri.j",
+          "https://www.facebook.com/djbrijofficial"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://djbrij.github.io/dj-brij-site/#service",
+        "name": "DJ Bri J",
+        "url": "https://djbrij.github.io/dj-brij-site/",
+        "image": "https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg",
+        "description": "Wedding, quinceañera, birthday, family party, and brand event DJ serving Dallas, Fort Worth, and the surrounding area.",
+        "telephone": "+1-469-708-8186",
+        "email": "briana.jasso@gmail.com",
+        "founder": { "@id": "https://djbrij.github.io/dj-brij-site/#person" },
+        "areaServed": [
+          { "@type": "City", "name": "Dallas" },
+          { "@type": "City", "name": "Fort Worth" },
+          { "@type": "State", "name": "Texas" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dallas",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/djbri.j/",
+          "https://www.tiktok.com/@djbri.j",
+          "https://www.facebook.com/djbrijofficial"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" href="../assets/img/favicon.png" sizes="any" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+
+  <link rel="preload" as="image" href="../assets/img/portrait-sunglasses.jpg" fetchpriority="high" media="(min-width: 769px)" />
+  <link rel="preload" as="image" href="../assets/img/portrait-sunglasses-sm.jpg" fetchpriority="high" media="(max-width: 768px)" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <style>
+    /* Meet the DJ — page-only layout */
+    .mt-open {
+      display: grid;
+      grid-template-columns: 0.85fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .mt-open img { width: 100%; height: 640px; object-fit: cover; object-position: 50% 15%; border-radius: 2px; }
+    .mt-open blockquote {
+      margin: 0;
+      font-family: var(--djb-display);
+      font-size: clamp(30px, 5vw, 50px);
+      line-height: 1.1;
+      max-width: 520px;
+    }
+
+    /* Her bio gets a comfortable reading measure and real air between paragraphs. */
+    .mt-bio { display: flex; justify-content: center; }
+    .mt-bio__inner {
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .mt-bio__inner p {
+      font-size: clamp(18px, 1.7vw, 21px);
+      line-height: 1.85;
+      color: rgba(33, 24, 21, 0.9);
+    }
+
+    .mt-pull { text-align: center; padding-block: clamp(80px, 9.7vw, 140px); }
+    .mt-pull p {
+      font-family: var(--djb-display);
+      font-size: clamp(28px, 4.9vw, 48px);
+      line-height: 1.3;
+      color: var(--djb-cotton);
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .mt-personal { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+    .mt-list { list-style: none; margin: 0; padding: 0; }
+    .mt-list li {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--djb-stucco);
+      font-size: 16px;
+      color: var(--djb-ink-70);
+    }
+
+    .mt-socials { max-width: 780px; }
+    .mt-social-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(246, 240, 230, 0.2);
+      text-decoration: none;
+    }
+    .mt-social-row b {
+      font-family: var(--djb-display);
+      font-weight: 400;
+      font-size: clamp(21px, 2.3vw, 26px);
+      color: var(--djb-cotton);
+      transition: color 0.2s var(--djb-ease);
+    }
+    .mt-social-row span {
+      font-size: 17px;
+      color: rgba(246, 240, 230, 0.7);
+      transition: color 0.2s var(--djb-ease);
+    }
+    .mt-social-row:hover b,
+    .mt-social-row:hover span { color: var(--djb-rose); }
+
+    .mt-closing { text-align: center; }
+    .mt-closing h2 { margin-bottom: 40px; }
+
+    @media (max-width: 900px) {
+      .mt-open { grid-template-columns: 1fr; gap: 40px; }
+      .mt-open img { height: 460px; }
+      .mt-personal { grid-template-columns: 1fr; gap: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="djb-skip" href="#main">Skip to content</a>
+
+<header class="djb-header">
+  <div class="djb-header__inner">
+    <a class="djb-header__logo" href="../" aria-label="DJ Bri J — home">
+      <img src="../assets/img/logo-mark.png" alt="DJ Bri J" width="62" height="62" />
+    </a>
+    <nav class="djb-nav" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../experience/">The Experience</a>
+      <a href="./" aria-current="page">Meet the DJ</a>
+    </nav>
+    <a class="djb-header__cta" href="../quote/">Get Quote</a>
+    <button class="djb-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="djb-navmenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="djb-navmenu" id="djb-navmenu" aria-hidden="true">
+  <div class="djb-navmenu__top">
+    <img src="../assets/img/logo-mark.png" alt="DJ Bri J" width="48" height="48" />
+    <button class="djb-navmenu__close" type="button" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="djb-navmenu__links" aria-label="Mobile">
+    <a href="../">Home</a>
+    <a href="../experience/">The Experience</a>
+    <a href="./" aria-current="page">Meet the DJ</a>
+    <a href="../quote/">Get Quote</a>
+  </nav>
+  <a class="djb-btn djb-btn-primary djb-navmenu__cta" href="../quote/">Get Quote</a>
+  <div class="djb-navmenu__foot">
+    <a href="tel:+14697088186">(469) 708-8186</a>
+    <a href="mailto:briana.jasso@gmail.com">briana.jasso@gmail.com</a>
+    <a href="https://www.instagram.com/djbri.j/" rel="me noopener" target="_blank">Instagram — @djbri.j</a>
+    <a href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">TikTok — @djbri.j</a>
+    <a href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">Facebook — /djbrijofficial</a>
+  </div>
+</div>
+
+<main id="main" class="djb-page">
+
+  <!-- OPENING -->
+  <section class="djb-bg-cotton" style="padding: clamp(56px, 6.3vw, 90px) 0 clamp(72px, 8.4vw, 120px);" aria-labelledby="mt-h1">
+    <div class="djb-wrap mt-open">
+      <img src="../assets/img/portrait-sunglasses.jpg"
+           srcset="../assets/img/portrait-sunglasses-sm.jpg 800w, ../assets/img/portrait-sunglasses.jpg 1400w"
+           sizes="(max-width: 900px) 100vw, 40vw"
+           alt="DJ Bri J outdoors in sunglasses, holding a deep red carnation, in a white tee and knotted red bandana"
+           fetchpriority="high" decoding="sync" width="1400" height="1867" />
+      <div>
+        <p class="djb-eyebrow" style="margin-bottom: 24px;">Meet the DJ</p>
+        <blockquote id="mt-h1">"...my roots run deep into Oak Cliff and Tamaulipas."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO — her words, verbatim -->
+  <section class="djb-bg-cotton" style="padding: 40px 0 clamp(80px, 9vw, 130px);" aria-label="Biography">
+    <div class="djb-wrap mt-bio">
+      <div class="mt-bio__inner">
+        <p>I was born in Dallas, but my roots run deep into Oak Cliff and Tamaulipas, Mexico.</p>
+        <p>The foundation of everything I do behind the booth are the sounds I grew up hearing — from the kitchen radio, to the porch where the neighbor's music carried through the walls, to every family party in Mexico.</p>
+        <p>I blend 214 Hip-Hop with the Latin hits that make your tías scream and your tíos cry. I create experiences for couples, families, and brands — where different cultures dance at the same time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE BREAK -->
+  <section class="djb-bg-oxblood mt-pull">
+    <div class="djb-wrap">
+      <p class="djb-reveal">From the kitchen radio, to the porch where the neighbor's music carried through the walls.</p>
+    </div>
+  </section>
+
+  <!-- PERSONAL LAYER -->
+  <section class="djb-section djb-bg-cotton" aria-label="A little more about me">
+    <div class="djb-wrap mt-personal">
+      <div>
+        <h2 class="djb-display-xs" style="margin-bottom: 32px;">On Rotation</h2>
+        <ul class="mt-list">
+          <li>[Placeholder — artist or track she has on rotation]</li>
+          <li>[Placeholder — artist or track she has on rotation]</li>
+          <li>[Placeholder — artist or track she has on rotation]</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="djb-display-xs" style="margin-bottom: 32px;">A Few Things</h2>
+        <ul class="mt-list">
+          <li>[Placeholder — one-line personal fact]</li>
+          <li>[Placeholder — one-line personal fact]</li>
+          <li>[Placeholder — one-line personal fact]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIALS -->
+  <section class="djb-section djb-bg-ink" aria-labelledby="mt-follow">
+    <div class="djb-wrap">
+      <p class="djb-eyebrow" style="margin-bottom: 24px;">Follow the Sound</p>
+      <h2 id="mt-follow" class="djb-display-xs" style="color: var(--djb-cotton); margin-bottom: 48px; font-size: clamp(28px, 4.2vw, 40px);">Come find me between sets.</h2>
+      <div class="mt-socials">
+        <a class="mt-social-row" href="https://www.instagram.com/djbri.j/" rel="me noopener" target="_blank">
+          <b>Instagram</b><span>@djbri.j</span>
+        </a>
+        <a class="mt-social-row" href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">
+          <b>TikTok</b><span>@djbri.j</span>
+        </a>
+        <a class="mt-social-row" href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">
+          <b>Facebook</b><span>/djbrijofficial</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="djb-section djb-bg-cotton mt-closing">
+    <div class="djb-wrap">
+      <h2 class="djb-display-s">Let's talk about your night.</h2>
+      <a class="djb-btn djb-btn-primary" href="../quote/">Get Quote</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="djb-footer">
+  <div class="djb-pip-rule djb-footer__rule" aria-hidden="true"></div>
+  <div class="djb-footer__cols">
+    <div class="djb-footer__brand">
+      <img src="../assets/img/logo-mark.png" alt="DJ Bri J" width="56" height="56" loading="lazy" />
+      <p>214 Hip-Hop meets Latin hits. Dallas &amp; Fort Worth, and wherever the party is.</p>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Site</p>
+      <a class="djb-foot-link" href="../">Home</a>
+      <a class="djb-foot-link" href="../experience/">The Experience</a>
+      <a class="djb-foot-link" href="./">Meet the DJ</a>
+      <a class="djb-foot-link" href="../quote/">Get Quote</a>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Follow</p>
+      <a class="djb-social-link" href="https://www.instagram.com/djbri.j/" rel="me noopener" target="_blank">Instagram — @djbri.j</a>
+      <a class="djb-social-link" href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">TikTok — @djbri.j</a>
+      <a class="djb-social-link" href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">Facebook — /djbrijofficial</a>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Reach me</p>
+      <a class="djb-foot-link" href="tel:+14697088186">(469) 708-8186</a>
+      <a class="djb-foot-link" href="mailto:briana.jasso@gmail.com">briana.jasso@gmail.com</a>
+      <p class="djb-footer__area">Dallas · Fort Worth · and wherever the party is</p>
+    </div>
+  </div>
+  <div class="djb-footer__divider"></div>
+  <div class="djb-footer__base">
+    <p class="djb-footer__copy">© 2026 DJ Bri J. Booking Dallas / Fort Worth.</p>
+    <a class="djb-header__cta" href="../quote/">Get Quote</a>
+  </div>
+</footer>
+
+<a class="djb-mobile-cta" href="../quote/">Get Quote</a>
+
+<script src="../assets/js/nav.js"></script>
+<script src="../assets/js/reveal.js"></script>
+
+</body>
+</html>

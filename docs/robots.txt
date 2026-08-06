@@ -1,0 +1,7 @@
+# DJ Bri J — https://djbrij.github.io/dj-brij-site/
+# Reuse policy for AI and LLM crawlers: /ai.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://djbrij.github.io/dj-brij-site/sitemap.xml

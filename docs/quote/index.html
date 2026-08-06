@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.github.io/dj-brij-site/ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Get Quote — DJ Bri J</title>
+  <meta name="description" content="Call, text, or email DJ Bri J at (469) 708-8186 or briana.jasso@gmail.com. Every event is quoted individually, and I reply within 24–48 hours." />
+  <link rel="canonical" href="https://djbrij.github.io/dj-brij-site/quote/" />
+
+  <meta property="og:title" content="Get Quote — DJ Bri J" />
+  <meta property="og:description" content="Tell me about your celebration. Call, text, or email — I reply within 24–48 hours." />
+  <meta property="og:image" content="https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg" />
+  <meta property="og:url" content="https://djbrij.github.io/dj-brij-site/quote/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DJ Bri J" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://djbrij.github.io/dj-brij-site/#person",
+        "name": "Briana Jasso",
+        "alternateName": "DJ Bri J",
+        "url": "https://djbrij.github.io/dj-brij-site/",
+        "image": "https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg",
+        "jobTitle": "DJ",
+        "description": "Dallas-born DJ with roots in Oak Cliff and Tamaulipas, Mexico, blending 214 Hip-Hop with Latin hits for weddings, quinceañeras, family parties, and brand events.",
+        "disambiguatingDescription": "DJ Bri J is a solo DJ based in Dallas / Fort Worth, Texas, performing at weddings, quinceañeras, birthdays, family parties, and brand events. Not to be confused with any similarly named artist outside the Dallas–Fort Worth area.",
+        "knowsLanguage": ["en", "es"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dallas",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/djbri.j/",
+          "https://www.tiktok.com/@djbri.j",
+          "https://www.facebook.com/djbrijofficial"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://djbrij.github.io/dj-brij-site/#service",
+        "name": "DJ Bri J",
+        "url": "https://djbrij.github.io/dj-brij-site/",
+        "image": "https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg",
+        "description": "Wedding, quinceañera, birthday, family party, and brand event DJ serving Dallas, Fort Worth, and the surrounding area.",
+        "telephone": "+1-469-708-8186",
+        "email": "briana.jasso@gmail.com",
+        "founder": { "@id": "https://djbrij.github.io/dj-brij-site/#person" },
+        "areaServed": [
+          { "@type": "City", "name": "Dallas" },
+          { "@type": "City", "name": "Fort Worth" },
+          { "@type": "State", "name": "Texas" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dallas",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/djbri.j/",
+          "https://www.tiktok.com/@djbri.j",
+          "https://www.facebook.com/djbrijofficial"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" href="../assets/img/favicon.png" sizes="any" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <style>
+    /* Get Quote — page-only layout. No hero image competing with the ask. */
+    .gq-head h1 { max-width: 760px; margin-bottom: 20px; }
+    .gq-head p { font-size: clamp(17px, 1.5vw, 18px); color: rgba(33, 24, 21, 0.75); max-width: 560px; }
+
+    .gq-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+
+    .gq-contact-link {
+      display: block;
+      font-family: var(--djb-display);
+      font-size: clamp(26px, 3.1vw, 34px);
+      line-height: 1.2;
+      color: var(--djb-ink);
+      text-decoration: none;
+      transition: color 0.2s var(--djb-ease);
+    }
+    .gq-contact-link:hover { color: var(--djb-red); }
+    .gq-contact-link + .gq-contact-link { margin-top: 20px; }
+
+    .gq-note {
+      font-size: 16px;
+      color: var(--djb-ink-70);
+      max-width: 420px;
+      margin: 40px 0 28px;
+    }
+
+    .gq-socials { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .gq-socials a {
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      color: var(--djb-red);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s var(--djb-ease);
+    }
+    .gq-socials a:hover { border-bottom-color: var(--djb-red); }
+
+    .gq-next { display: flex; gap: 64px; }
+    .gq-next > div { flex: 1; }
+    .gq-next .djb-step__title { font-size: 17px; }
+    .gq-next .djb-step__n { margin-bottom: 18px; }
+
+    @media (max-width: 900px) {
+      .gq-cols { grid-template-columns: 1fr; gap: 56px; }
+      .gq-next { flex-direction: column; gap: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="djb-skip" href="#main">Skip to content</a>
+
+<header class="djb-header">
+  <div class="djb-header__inner">
+    <a class="djb-header__logo" href="../" aria-label="DJ Bri J — home">
+      <img src="../assets/img/logo-mark.png" alt="DJ Bri J" width="62" height="62" />
+    </a>
+    <nav class="djb-nav" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../experience/">The Experience</a>
+      <a href="../meet/">Meet the DJ</a>
+    </nav>
+    <a class="djb-header__cta" href="./" aria-current="page">Get Quote</a>
+    <button class="djb-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="djb-navmenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="djb-navmenu" id="djb-navmenu" aria-hidden="true">
+  <div class="djb-navmenu__top">
+    <img src="../assets/img/logo-mark.png" alt="DJ Bri J" width="48" height="48" />
+    <button class="djb-navmenu__close" type="button" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="djb-navmenu__links" aria-label="Mobile">
+    <a href="../">Home</a>
+    <a href="../experience/">The Experience</a>
+    <a href="../meet/">Meet the DJ</a>
+    <a href="./" aria-current="page">Get Quote</a>
+  </nav>
+  <a class="djb-btn djb-btn-primary djb-navmenu__cta" href="tel:+14697088186">Call (469) 708-8186</a>
+  <div class="djb-navmenu__foot">
+    <a href="tel:+14697088186">(469) 708-8186</a>
+    <a href="mailto:briana.jasso@gmail.com">briana.jasso@gmail.com</a>
+    <a href="https://www.instagram.com/djbri.j/" rel="me noopener" target="_blank">Instagram — @djbri.j</a>
+    <a href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">TikTok — @djbri.j</a>
+    <a href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">Facebook — /djbrijofficial</a>
+  </div>
+</div>
+
+<main id="main" class="djb-page">
+
+  <!-- HEADER -->
+  <section class="djb-bg-cotton gq-head" style="padding: clamp(64px, 7.6vw, 110px) 0 clamp(48px, 4.9vw, 70px);">
+    <div class="djb-wrap">
+      <p class="djb-eyebrow" style="margin-bottom: 18px;">Get Quote</p>
+      <h1 class="djb-display-l">Tell me about your celebration.</h1>
+      <p>Reach out by phone or email and I'll reply within 24–48 hours.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT + GUIDANCE -->
+  <section class="djb-bg-cotton" style="padding: 40px 0 clamp(80px, 9vw, 130px);">
+    <div class="djb-wrap gq-cols">
+
+      <div>
+        <p class="djb-eyebrow" style="margin-bottom: 24px;">Reach Me Directly</p>
+        <a class="gq-contact-link" href="tel:+14697088186">(469) 708-8186</a>
+        <a class="gq-contact-link" href="mailto:briana.jasso@gmail.com">briana.jasso@gmail.com</a>
+        <p class="gq-note">Call, text, or email — whatever's easiest. Every event is quoted individually once I know a few details about your night.</p>
+        <div class="gq-socials">
+          <a href="https://www.instagram.com/djbri.j/" rel="me noopener" target="_blank">Instagram — @djbri.j</a>
+          <a href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">TikTok — @djbri.j</a>
+          <a href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">Facebook — /djbrijofficial</a>
+        </div>
+      </div>
+
+      <div>
+        <p class="djb-eyebrow" style="margin-bottom: 24px;">When You Reach Out, Tell Me</p>
+        <ul class="djb-checklist">
+          <li class="djb-check-item">Event type — wedding, quinceañera, birthday, family party, or brand event</li>
+          <li class="djb-check-item">Event date, or "not sure yet"</li>
+          <li class="djb-check-item">Venue or city</li>
+          <li class="djb-check-item">Estimated guest count</li>
+          <li class="djb-check-item">The music your family loves</li>
+          <li class="djb-check-item">How you found me (optional)</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHAT HAPPENS NEXT -->
+  <section class="djb-section djb-bg-stucco" aria-labelledby="gq-next">
+    <div class="djb-wrap">
+      <h2 id="gq-next" class="djb-display-xs" style="margin-bottom: 48px;">What Happens Next</h2>
+      <div class="gq-next" data-reveal-group>
+        <div class="djb-reveal">
+          <div class="djb-step__n">1</div>
+          <p class="djb-step__title">I read your message</p>
+          <p class="djb-step__desc">Every inquiry gets a real read, not an auto-reply.</p>
+        </div>
+        <div class="djb-reveal">
+          <div class="djb-step__n">2</div>
+          <p class="djb-step__title">I reply within 24–48 hours</p>
+          <p class="djb-step__desc">With questions, availability, and a quote built around your night.</p>
+        </div>
+        <div class="djb-reveal">
+          <div class="djb-step__n">3</div>
+          <p class="djb-step__title">We lock in your date</p>
+          <p class="djb-step__desc">A deposit secures the booking and we start planning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="djb-footer">
+  <div class="djb-pip-rule djb-footer__rule" aria-hidden="true"></div>
+  <div class="djb-footer__cols">
+    <div class="djb-footer__brand">
+      <img src="../assets/img/logo-mark.png" alt="DJ Bri J" width="56" height="56" loading="lazy" />
+      <p>214 Hip-Hop meets Latin hits. Dallas &amp; Fort Worth, and wherever the party is.</p>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Site</p>
+      <a class="djb-foot-link" href="../">Home</a>
+      <a class="djb-foot-link" href="../experience/">The Experience</a>
+      <a class="djb-foot-link" href="../meet/">Meet the DJ</a>
+      <a class="djb-foot-link" href="./">Get Quote</a>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Follow</p>
+      <a class="djb-social-link" href="https://www.instagram.com/djbri.j/" rel="me noopener" target="_blank">Instagram — @djbri.j</a>
+      <a class="djb-social-link" href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">TikTok — @djbri.j</a>
+      <a class="djb-social-link" href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">Facebook — /djbrijofficial</a>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Reach me</p>
+      <a class="djb-foot-link" href="tel:+14697088186">(469) 708-8186</a>
+      <a class="djb-foot-link" href="mailto:briana.jasso@gmail.com">briana.jasso@gmail.com</a>
+      <p class="djb-footer__area">Dallas · Fort Worth · and wherever the party is</p>
+    </div>
+  </div>
+  <div class="djb-footer__divider"></div>
+  <div class="djb-footer__base">
+    <p class="djb-footer__copy">© 2026 DJ Bri J. Booking Dallas / Fort Worth.</p>
+    <a class="djb-header__cta" href="tel:+14697088186">Call (469) 708-8186</a>
+  </div>
+</footer>
+
+<a class="djb-mobile-cta" href="tel:+14697088186">Call or text (469) 708-8186</a>
+
+<script src="../assets/js/nav.js"></script>
+<script src="../assets/js/reveal.js"></script>
+
+</body>
+</html>
