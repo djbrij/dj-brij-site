@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.github.io/dj-brij-site/ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Page not found — DJ Bri J</title>
+  <meta name="description" content="That page isn't here. Head back to DJ Bri J's home page, or get in touch about your event." />
+  <meta name="robots" content="noindex" />
+
+  <!-- GitHub Pages serves this file for any missing path at any depth, so the
+       asset links must be absolute to the project root rather than relative. -->
+  <link rel="icon" href="/dj-brij-site/assets/img/favicon.png" sizes="any" />
+  <link rel="apple-touch-icon" href="/dj-brij-site/assets/img/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/dj-brij-site/assets/css/styles.css" />
+
+  <style>
+    body { padding-bottom: 0; }
+    .nf {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--djb-ink);
+      color: var(--djb-cotton);
+      position: relative;
+      overflow: hidden;
+      padding: 40px var(--djb-gutter);
+    }
+    .nf__drop {
+      right: -160px; top: -140px;
+      width: 520px; height: 520px;
+      background: rgba(176, 46, 42, 0.09);
+    }
+    .nf__inner { position: relative; z-index: 1; }
+    .nf__code {
+      font-family: var(--djb-display);
+      font-size: clamp(96px, 18vw, 200px);
+      line-height: 1;
+      color: rgba(176, 46, 42, 0.5);
+    }
+    .nf h1 { color: var(--djb-cotton); margin: 16px 0 20px; }
+    .nf p { color: var(--djb-cotton-65); max-width: 460px; margin: 0 auto 40px; }
+    .nf__links { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; }
+    .nf img { height: 56px; width: auto; margin-bottom: 40px; }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <div class="djb-teardrop nf__drop" aria-hidden="true"></div>
+    <div class="nf__inner">
+      <img src="/dj-brij-site/assets/img/logo-mark.png" alt="DJ Bri J" width="56" height="56" />
+      <div class="nf__code" aria-hidden="true">404</div>
+      <h1 class="djb-display-s">This one's not in the crate.</h1>
+      <p>That page doesn't exist — or it moved. Let's get you back to the floor.</p>
+      <div class="nf__links">
+        <a class="djb-btn djb-btn-primary" href="/dj-brij-site/">Back to Home</a>
+        <a class="djb-btn djb-btn-ghost" href="/dj-brij-site/quote/">Get Quote</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

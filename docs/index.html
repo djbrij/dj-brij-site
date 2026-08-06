@@ -1,1 +1,599 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.github.io/dj-brij-site/ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>DJ Bri J — Dallas / Fort Worth DJ for Weddings, Quinceañeras &amp; Family Parties</title>
+  <meta name="description" content="214 Hip-Hop meets the Latin hits that make your tías scream and tíos cry. Ten years behind the booth, DJing weddings, quinceañeras, family parties, and brand events across Dallas and Fort Worth." />
+  <link rel="canonical" href="https://djbrij.github.io/dj-brij-site/" />
+
+  <meta property="og:title" content="DJ Bri J — Different cultures dance at the same time." />
+  <meta property="og:description" content="214 Hip-Hop meets the Latin hits that make your tías scream and tíos cry. Booking weddings, quinceañeras, family parties, and brand events in Dallas / Fort Worth." />
+  <meta property="og:image" content="https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg" />
+  <meta property="og:url" content="https://djbrij.github.io/dj-brij-site/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DJ Bri J" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://djbrij.github.io/dj-brij-site/#person",
+        "name": "Briana Jasso",
+        "alternateName": "DJ Bri J",
+        "url": "https://djbrij.github.io/dj-brij-site/",
+        "image": "https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg",
+        "jobTitle": "DJ",
+        "description": "Dallas-born DJ with roots in Oak Cliff and Tamaulipas, Mexico, blending 214 Hip-Hop with Latin hits for weddings, quinceañeras, family parties, and brand events.",
+        "disambiguatingDescription": "DJ Bri J is a solo DJ based in Dallas / Fort Worth, Texas, performing at weddings, quinceañeras, birthdays, family parties, and brand events. Not to be confused with any similarly named artist outside the Dallas–Fort Worth area.",
+        "knowsLanguage": ["en", "es"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dallas",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/djbri.j/",
+          "https://www.tiktok.com/@djbri.j",
+          "https://www.facebook.com/djbrijofficial"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://djbrij.github.io/dj-brij-site/#service",
+        "name": "DJ Bri J",
+        "url": "https://djbrij.github.io/dj-brij-site/",
+        "image": "https://djbrij.github.io/dj-brij-site/assets/img/og-cover.jpg",
+        "description": "Wedding, quinceañera, birthday, family party, and brand event DJ serving Dallas, Fort Worth, and the surrounding area.",
+        "telephone": "+1-469-708-8186",
+        "email": "briana.jasso@gmail.com",
+        "founder": { "@id": "https://djbrij.github.io/dj-brij-site/#person" },
+        "areaServed": [
+          { "@type": "City", "name": "Dallas" },
+          { "@type": "City", "name": "Fort Worth" },
+          { "@type": "State", "name": "Texas" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dallas",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/djbri.j/",
+          "https://www.tiktok.com/@djbri.j",
+          "https://www.facebook.com/djbrijofficial"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" href="assets/img/favicon.png" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+  <link rel="preload" as="image" href="assets/img/hero.jpg" fetchpriority="high" media="(min-width: 769px)" />
+  <link rel="preload" as="image" href="assets/img/hero-sm.jpg" fetchpriority="high" media="(max-width: 768px)" />
+  <link rel="preload" as="image" href="assets/img/logo-mark.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style>
+    /* Preloader — masks font swap and hero decode on a cold load */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #211815;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease-out;
+    }
+    #preloader.is-done { opacity: 0; pointer-events: none; }
+    #preloader img {
+      width: 96px;
+      height: auto;
+      animation: djb-pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes djb-pulse {
+      0%, 100% { opacity: 0.35; }
+      50%      { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #preloader img { animation: none; opacity: 1; }
+    }
+  </style>
+
+  <style>
+    /* Home-only layout */
+    .hm-hero {
+      position: relative;
+      height: 880px;
+      max-height: 92vh;
+      min-height: 620px;
+      overflow: hidden;
+      background: #211815;
+    }
+    .hm-hero__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 15%;
+      animation: djb-kenburns 26s ease-out forwards;
+    }
+    /* Deep enough behind the headline to clear AA over the white tee — the
+       brief calls for a scrim rather than lightening the type. */
+    .hm-hero__scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(20, 13, 11, 0.92) 0%,
+        rgba(20, 13, 11, 0.82) 20%,
+        rgba(20, 13, 11, 0.68) 40%,
+        rgba(20, 13, 11, 0.55) 58%,
+        rgba(20, 13, 11, 0.28) 72%,
+        rgba(20, 13, 11, 0.14) 84%,
+        rgba(20, 13, 11, 0.52) 100%
+      );
+    }
+    .hm-hero__inner {
+      position: absolute;
+      left: 0; right: 0; bottom: clamp(72px, 9vw, 96px);
+    }
+    .hm-hero h1 { color: var(--djb-cotton); max-width: 900px; }
+    .hm-hero__sub {
+      font-size: clamp(17px, 1.6vw, 19px);
+      line-height: 1.6;
+      color: rgba(246, 240, 230, 0.85);
+      max-width: 560px;
+      margin-top: 24px;
+    }
+    .hm-hero__cta { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 40px; }
+    .hm-scrollcue {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .hm-scrollcue i {
+      display: block;
+      width: 1px;
+      height: 34px;
+      background: rgba(246, 240, 230, 0.5);
+    }
+    .hm-scrollcue span {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(246, 240, 230, 0.6);
+    }
+
+    .hm-thesis { text-align: center; }
+    .hm-thesis p {
+      font-family: var(--djb-display);
+      font-size: clamp(30px, 5.2vw, 54px);
+      line-height: 1.12;
+      color: var(--djb-cotton);
+      max-width: 920px;
+      margin: 56px auto 0;
+    }
+
+    .hm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 40px;
+    }
+    .hm-card__media { height: 280px; margin-bottom: 24px; }
+    .hm-card__media img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
+    .hm-card h3 { margin-bottom: 10px; }
+    .hm-card p { margin-bottom: 14px; max-width: 480px; color: rgba(33, 24, 21, 0.8); }
+
+    .hm-why { position: relative; overflow: hidden; }
+    .hm-why__drop {
+      right: -160px; top: -140px;
+      width: 520px; height: 520px;
+      background: rgba(176, 46, 42, 0.09);
+    }
+    .hm-why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+    .hm-why__n {
+      font-family: var(--djb-display);
+      font-size: clamp(72px, 7.6vw, 110px);
+      color: rgba(176, 46, 42, 0.4);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .hm-why h3 { color: var(--djb-cotton); margin-bottom: 14px; max-width: 300px; font-size: clamp(21px, 1.9vw, 25px); }
+    .hm-why p { font-size: 16px; line-height: 1.6; color: var(--djb-cotton-65); max-width: 300px; margin-bottom: 18px; }
+
+    .hm-proof { text-align: center; }
+    .hm-proof__row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .hm-proof__quote { font-size: clamp(26px, 3.4vw, 44px); }
+    .hm-proof__stat {
+      flex-shrink: 0;
+      text-align: center;
+      border-left: 1px solid var(--djb-stucco);
+      padding-left: 64px;
+    }
+    .hm-proof__stat b {
+      display: block;
+      font-family: var(--djb-display);
+      font-weight: 400;
+      font-size: clamp(56px, 5.8vw, 84px);
+      color: var(--djb-red);
+      line-height: 1;
+    }
+    .hm-proof__stat span {
+      display: block;
+      color: rgba(33, 24, 21, 0.65);
+      max-width: 160px;
+      margin-top: 6px;
+    }
+    .hm-dots { display: flex; justify-content: center; gap: 10px; margin-top: 48px; }
+    .hm-dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--djb-stucco); }
+    .hm-dots i:first-child { background: var(--djb-red); }
+
+    .hm-sound { text-align: center; }
+    .hm-sound__crate {
+      font-family: var(--djb-display);
+      font-size: clamp(26px, 4.4vw, 46px);
+      line-height: 1.35;
+      color: var(--djb-cotton);
+      max-width: 1000px;
+      margin: 24px auto 64px;
+    }
+    .hm-sound__embed {
+      max-width: 720px;
+      margin: 0 auto;
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 28px;
+      text-align: left;
+      border-radius: 4px;
+    }
+    .hm-sound__play {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(246, 240, 230, 0.5);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hm-sound__play i {
+      width: 0; height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 12px solid var(--djb-cotton);
+      margin-left: 3px;
+    }
+
+    .hm-teaser {
+      display: grid;
+      grid-template-columns: 0.85fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .hm-teaser img { width: 100%; height: 620px; object-fit: cover; object-position: 50% 25%; border-radius: 2px; }
+    .hm-teaser p { max-width: 480px; color: rgba(33, 24, 21, 0.8); margin-bottom: 32px; }
+
+    .hm-closing { text-align: center; }
+    .hm-closing h2 { color: var(--djb-cotton); margin-bottom: 40px; }
+
+    @media (max-width: 900px) {
+      .hm-why__grid { grid-template-columns: 1fr; gap: 56px; }
+      .hm-proof__row { flex-direction: column; align-items: flex-start; gap: 40px; }
+      .hm-proof__stat { border-left: 0; border-top: 1px solid var(--djb-stucco); padding-left: 0; padding-top: 32px; text-align: left; }
+      .hm-proof__stat span { margin-inline: 0; }
+      .hm-teaser { grid-template-columns: 1fr; gap: 40px; }
+      .hm-teaser img { height: 440px; }
+    }
+
+    @media (max-width: 768px) {
+      .hm-hero { height: 88svh; min-height: 560px; }
+      .hm-hero__cta .djb-btn { flex: 1 1 auto; text-align: center; }
+      .hm-scrollcue { display: none; }
+      .hm-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hm-card__media { height: 240px; }
+      .hm-why__drop { width: 340px; height: 340px; right: -120px; top: -100px; }
+      .hm-teaser img { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="preloader" aria-hidden="true">
+  <img src="assets/img/logo-mark.png" alt="" width="96" height="96" />
+</div>
+
+<a class="djb-skip" href="#main">Skip to content</a>
+
+<header class="djb-header djb-header--overlay">
+  <div class="djb-header__inner">
+    <a class="djb-header__logo" href="./" aria-label="DJ Bri J — home">
+      <img src="assets/img/logo-mark.png" alt="DJ Bri J" width="62" height="62" />
+    </a>
+    <nav class="djb-nav" aria-label="Primary">
+      <a href="./" aria-current="page">Home</a>
+      <a href="experience/">The Experience</a>
+      <a href="meet/">Meet the DJ</a>
+    </nav>
+    <a class="djb-header__cta" href="quote/">Get Quote</a>
+    <button class="djb-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="djb-navmenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="djb-navmenu" id="djb-navmenu" aria-hidden="true">
+  <div class="djb-navmenu__top">
+    <img src="assets/img/logo-mark.png" alt="DJ Bri J" width="48" height="48" />
+    <button class="djb-navmenu__close" type="button" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="djb-navmenu__links" aria-label="Mobile">
+    <a href="./" aria-current="page">Home</a>
+    <a href="experience/">The Experience</a>
+    <a href="meet/">Meet the DJ</a>
+    <a href="quote/">Get Quote</a>
+  </nav>
+  <a class="djb-btn djb-btn-primary djb-navmenu__cta" href="quote/">Get Quote</a>
+  <div class="djb-navmenu__foot">
+    <a href="tel:+14697088186">(469) 708-8186</a>
+    <a href="mailto:briana.jasso@gmail.com">briana.jasso@gmail.com</a>
+    <a href="https://www.instagram.com/djbri.j/" rel="me noopener" target="_blank">Instagram — @djbri.j</a>
+    <a href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">TikTok — @djbri.j</a>
+    <a href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">Facebook — /djbrijofficial</a>
+  </div>
+</div>
+
+<main id="main" class="djb-page">
+
+  <!-- HERO -->
+  <section class="hm-hero" aria-label="Introduction">
+    <img
+      class="hm-hero__img"
+      src="assets/img/hero.jpg"
+      srcset="assets/img/hero-sm.jpg 900w, assets/img/hero.jpg 2000w"
+      sizes="100vw"
+      alt="DJ Bri J seated on a concrete ledge in front of a red brick building, wearing a white tee, red bandana, and brown cowboy boots"
+      fetchpriority="high"
+      decoding="sync"
+      width="2000" height="2667" />
+    <div class="hm-hero__scrim"></div>
+    <div class="hm-hero__inner">
+      <div class="djb-wrap">
+        <h1 class="djb-display-xl">Different cultures dance at the same time.</h1>
+        <p class="hm-hero__sub">214 Hip-Hop meets the Latin hits that make your tías scream and tíos cry.</p>
+        <div class="hm-hero__cta">
+          <a class="djb-btn djb-btn-primary" href="quote/">Get Quote</a>
+          <a class="djb-btn djb-btn-ghost" href="experience/">The Experience</a>
+        </div>
+      </div>
+    </div>
+    <div class="hm-scrollcue" aria-hidden="true">
+      <i></i><span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- THESIS -->
+  <section class="djb-section djb-bg-adobe hm-thesis" aria-label="What I play">
+    <div class="djb-wrap">
+      <div class="djb-pip-rule djb-pip-rule--light djb-pip-rule--short" aria-hidden="true"></div>
+      <p class="djb-reveal">214 Hip-Hop on one side. Cumbia, reggaetón, and corridos on the other. Same night, same dance floor.</p>
+    </div>
+  </section>
+
+  <!-- WHAT I PLAY -->
+  <section class="djb-section djb-bg-cotton" aria-labelledby="hm-play">
+    <div class="djb-wrap">
+      <p class="djb-eyebrow" style="margin-bottom: 18px;">What I Play</p>
+      <h2 id="hm-play" class="djb-display-m" style="margin-bottom: 64px; max-width: 700px;">Four rooms, one DJ.</h2>
+      <div class="hm-grid" data-reveal-group>
+
+        <article class="hm-card djb-reveal">
+          <div class="hm-card__media djb-ph">[Placeholder — wedding reception, wide shot]</div>
+          <h3 class="djb-h3">Weddings</h3>
+          <p class="djb-body">I build the night around your two families finding common ground on the dance floor.</p>
+          <a class="djb-link-arrow" href="experience/">Learn more →</a>
+        </article>
+
+        <article class="hm-card djb-reveal">
+          <div class="hm-card__media djb-ph">[Placeholder — quinceañera, dance floor]</div>
+          <h3 class="djb-h3">Quinceañeras &amp; Birthdays</h3>
+          <p class="djb-body">The kind of set where the birthday song and the reggaetón hit land with the same energy.</p>
+          <a class="djb-link-arrow" href="experience/">Learn more →</a>
+        </article>
+
+        <article class="hm-card djb-reveal">
+          <div class="hm-card__media djb-ph">[Placeholder — backyard family party]</div>
+          <h3 class="djb-h3">Family Parties</h3>
+          <p class="djb-body">Backyard, banda, and everybody's tíos requesting one more cumbia.</p>
+          <a class="djb-link-arrow" href="experience/">Learn more →</a>
+        </article>
+
+        <article class="hm-card djb-reveal">
+          <div class="hm-card__media djb-ph">[Placeholder — corporate / brand event]</div>
+          <h3 class="djb-h3">Brand Events</h3>
+          <p class="djb-body">Professional setup, sharp transitions, a crowd that stays on the floor.</p>
+          <a class="djb-link-arrow" href="experience/">Learn more →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ME -->
+  <section class="djb-section djb-bg-ink hm-why" aria-labelledby="hm-why-h">
+    <div class="djb-teardrop hm-why__drop" aria-hidden="true"></div>
+    <div class="djb-wrap" style="position: relative; z-index: 1;">
+      <p class="djb-eyebrow" style="margin-bottom: 18px;">Why Me</p>
+      <h2 id="hm-why-h" class="djb-display-m" style="color: var(--djb-cotton); margin-bottom: 72px;">Ten years behind the booth.</h2>
+      <div class="hm-why__grid" data-reveal-group>
+
+        <article class="djb-reveal">
+          <div class="hm-why__n" aria-hidden="true">01</div>
+          <h3 class="djb-h3">I Curate Your Sound, Not Just Mine</h3>
+          <p>Learning what you love before I ever step foot in your venue.</p>
+          <a class="djb-link-arrow" href="experience/">Read more →</a>
+        </article>
+
+        <article class="djb-reveal">
+          <div class="hm-why__n" aria-hidden="true">02</div>
+          <h3 class="djb-h3">I Read the Room — Every Time</h3>
+          <p>Ten years behind the booth taught me when to hold a vibe and when to switch it up.</p>
+          <a class="djb-link-arrow" href="experience/">Read more →</a>
+        </article>
+
+        <article class="djb-reveal">
+          <div class="hm-why__n" aria-hidden="true">03</div>
+          <h3 class="djb-h3">I Think Through Every Detail</h3>
+          <p>Lights, sound, setup — considered before your guests walk in.</p>
+          <a class="djb-link-arrow" href="experience/">Read more →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="djb-section djb-bg-cotton hm-proof" aria-label="Proof">
+    <div class="djb-wrap">
+      <div class="hm-proof__row djb-reveal">
+        <blockquote style="margin: 0;">
+          <p class="djb-quote hm-proof__quote">"[Placeholder — client testimonial to come. Two or three sentences on how the night felt.]"</p>
+          <footer class="djb-quote__by">— [Placeholder: Name], Wedding</footer>
+        </blockquote>
+        <div class="hm-proof__stat">
+          <b>10</b>
+          <span>years behind the booth and on a stage</span>
+        </div>
+      </div>
+      <div class="hm-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <!-- A TASTE OF THE SOUND -->
+  <section class="djb-section djb-bg-oxblood hm-sound" aria-labelledby="hm-sound-h">
+    <div class="djb-wrap">
+      <p class="djb-eyebrow" id="hm-sound-h">A Taste of the Sound</p>
+      <p class="hm-sound__crate djb-reveal">Hip-Hop · Cumbia · Reggaetón · Corridos · R&amp;B · Banda · Top 40</p>
+      <div class="hm-sound__embed djb-ph djb-ph--on-dark">
+        <div class="hm-sound__play" aria-hidden="true"><i></i></div>
+        <div>[Placeholder — embed a mix or a short vertical video here]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE DJ TEASER -->
+  <section class="djb-section djb-bg-cotton" aria-labelledby="hm-meet-h">
+    <div class="djb-wrap hm-teaser">
+      <img class="djb-reveal" src="assets/img/portrait-closeup.jpg"
+           alt="DJ Bri J holding a deep red carnation against a sun-bleached fluted terracotta wall"
+           loading="lazy" decoding="async" width="1000" height="1778" />
+      <div class="djb-reveal">
+        <p class="djb-eyebrow" style="margin-bottom: 18px;">Meet the DJ</p>
+        <h2 id="hm-meet-h" class="djb-display-m" style="margin-bottom: 28px;">Oak Cliff roots, 214 sound.</h2>
+        <p class="djb-body">I was born in Dallas, but my roots run deep into Oak Cliff and Tamaulipas, Mexico.</p>
+        <a class="djb-link-arrow" href="meet/">Read my story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="djb-section djb-bg-ink hm-closing">
+    <div class="djb-wrap">
+      <h2 class="djb-display-s">Let's build your night.</h2>
+      <a class="djb-btn djb-btn-primary" href="quote/">Get Quote</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="djb-footer">
+  <div class="djb-pip-rule djb-footer__rule" aria-hidden="true"></div>
+  <div class="djb-footer__cols">
+    <div class="djb-footer__brand">
+      <img src="assets/img/logo-mark.png" alt="DJ Bri J" width="56" height="56" loading="lazy" />
+      <p>214 Hip-Hop meets Latin hits. Dallas &amp; Fort Worth, and wherever the party is.</p>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Site</p>
+      <a class="djb-foot-link" href="./">Home</a>
+      <a class="djb-foot-link" href="experience/">The Experience</a>
+      <a class="djb-foot-link" href="meet/">Meet the DJ</a>
+      <a class="djb-foot-link" href="quote/">Get Quote</a>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Follow</p>
+      <a class="djb-social-link" href="https://www.instagram.com/djbri.j/" rel="me noopener" target="_blank">Instagram — @djbri.j</a>
+      <a class="djb-social-link" href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">TikTok — @djbri.j</a>
+      <a class="djb-social-link" href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">Facebook — /djbrijofficial</a>
+    </div>
+    <div class="djb-footer__col">
+      <p class="djb-footer__head">Reach me</p>
+      <a class="djb-foot-link" href="tel:+14697088186">(469) 708-8186</a>
+      <a class="djb-foot-link" href="mailto:briana.jasso@gmail.com">briana.jasso@gmail.com</a>
+      <p class="djb-footer__area">Dallas · Fort Worth · and wherever the party is</p>
+    </div>
+  </div>
+  <div class="djb-footer__divider"></div>
+  <div class="djb-footer__base">
+    <p class="djb-footer__copy">© 2026 DJ Bri J. Booking Dallas / Fort Worth.</p>
+    <a class="djb-header__cta" href="quote/">Get Quote</a>
+  </div>
+</footer>
+
+<a class="djb-mobile-cta" href="quote/">Get Quote</a>
+
+<script>
+  (function () {
+    var el = document.getElementById('preloader');
+    if (!el) return;
+    var done = false;
+    var reveal = function () {
+      if (done) return;
+      done = true;
+      el.classList.add('is-done');
+      setTimeout(function () { el.remove(); }, 500);
+    };
+    if (document.readyState === 'complete') { reveal(); return; }
+    window.addEventListener('load', reveal, { once: true });
+    setTimeout(reveal, 4000); // hard cap in case an asset hangs
+  })();
+</script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/reveal.js"></script>
+
+</body>
+</html>
