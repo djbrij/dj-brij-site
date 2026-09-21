@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>The Experience — DJ Bri J</title>
-  <meta name="description" content="What it's actually like to have DJ Bri J in the room: a set built around your taste, a room read in real time, and a setup thought through before your guests walk in. What's included, how booking works, and answers to the questions I get a lot." />
+  <meta name="description" content="What it's actually like to have DJ Bri J in the room: a set built around your taste, a room read in real time, and a setup thought through before your guests walk in. Packages and add-ons, how booking works, and answers to the questions I get a lot." />
   <link rel="canonical" href="https://djbrij.github.io/dj-brij-site/experience/" />
 
   <meta property="og:title" content="The Experience — DJ Bri J" />
@@ -160,7 +160,79 @@
     .ex-pillar__media { height: clamp(280px, 32vw, 460px); }
     .ex-pillar__media img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
 
-    .ex-included { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+    /* Packages — three wine cards, the middle one raised. The raise is a
+       margin difference, not a transform: .djb-reveal.is-visible sets
+       transform: none, which would cancel a transform-based lift. */
+    .ex-pkg__grid {
+      list-style: none;
+      margin: 56px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .ex-pkg {
+      margin-top: 48px;
+      padding: 40px 32px 48px;
+      background: var(--djb-oxblood);
+      color: var(--djb-cotton);
+      border-radius: 4px;
+    }
+    .ex-pkg--featured { margin-top: 0; padding-top: 88px; }
+    .ex-pkg__name,
+    .ex-addons__title {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 32px;
+      padding: 10px 22px;
+      font-family: var(--djb-display);
+      font-weight: 400;
+      font-size: clamp(24px, 2.4vw, 30px);
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .ex-pkg__name { background: var(--djb-cotton); color: var(--djb-ink); }
+    .ex-pkg__list { list-style: none; margin: 0; padding: 0; }
+    .ex-pkg__list li {
+      padding: 14px 0;
+      font-size: clamp(17px, 1.5vw, 19px);
+      line-height: 1.4;
+    }
+    .ex-pkg__list li + li { border-top: 1px solid rgba(245, 239, 235, 0.18); }
+    .ex-pkg__all {
+      max-width: 760px;
+      margin: 40px auto 0;
+      text-align: center;
+      font-size: 16px;
+      color: var(--djb-ink-70);
+    }
+    .ex-pkg__all strong { color: var(--djb-ink); font-weight: 600; }
+
+    .ex-addons {
+      margin-top: 56px;
+      padding: 40px 24px 44px;
+      background: var(--djb-stucco);
+      border-radius: 4px;
+    }
+    .ex-addons__title { background: var(--djb-ink); color: var(--djb-cotton); font-size: clamp(22px, 2.2vw, 28px); }
+    .ex-addons__grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .ex-addons__grid li { padding: 4px 24px; text-align: center; }
+    .ex-addons__grid li + li { border-left: 1px solid rgba(33, 24, 21, 0.2); }
+    .ex-addons__grid h4 {
+      margin: 0 0 8px;
+      font-family: var(--djb-body);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ex-addons__grid p { font-size: 16px; line-height: 1.5; color: var(--djb-ink-70); }
 
     .ex-steps { display: flex; align-items: flex-start; gap: 0; }
     .ex-steps > div { flex: 1; padding-right: 24px; }
@@ -189,9 +261,20 @@
       /* Keep the image below the copy on every pillar once stacked, so the
          reading order stays headline → paragraph → image. */
       .ex-pillar--flip .ex-pillar__media { order: 2; }
-      .ex-included { grid-template-columns: 1fr; gap: 0; }
+      .ex-pkg__grid { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
+      .ex-pkg,
+      .ex-pkg--featured { margin-top: 0; padding: 36px 28px 40px; }
+      .ex-addons__grid { grid-template-columns: 1fr 1fr; row-gap: 32px; }
+      .ex-addons__grid li:nth-child(odd) { border-left: 0; }
       .ex-steps { flex-direction: column; gap: 36px; }
       .ex-steps > div { padding-right: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .ex-addons { padding: 32px 20px 36px; }
+      .ex-addons__grid { grid-template-columns: 1fr; row-gap: 0; }
+      .ex-addons__grid li { padding: 20px 8px; }
+      .ex-addons__grid li + li { border-left: 0; border-top: 1px solid rgba(33, 24, 21, 0.2); }
     }
   </style>
 </head>
@@ -296,19 +379,63 @@
     </div>
   </section>
 
-  <!-- WHAT'S INCLUDED -->
-  <section class="djb-section djb-bg-cotton" aria-labelledby="ex-inc">
+  <!-- CHOOSE YOUR PACKAGE -->
+  <section class="djb-section djb-bg-cotton ex-packages" aria-labelledby="ex-pkg-h">
     <div class="djb-wrap">
-      <h2 id="ex-inc" class="djb-display-xs" style="margin-bottom: 48px;">What's Included</h2>
-      <ul class="djb-checklist ex-included">
-        <li class="djb-check-item">Consultation to plan the night</li>
-        <li class="djb-check-item">Custom playlist built with you</li>
-        <li class="djb-check-item">Timeline planning</li>
-        <li class="djb-check-item">MC / announcements</li>
-        <li class="djb-check-item">Professional sound system</li>
-        <li class="djb-check-item">Lighting</li>
-        <li class="djb-check-item">Setup and teardown</li>
+      <h2 id="ex-pkg-h" class="djb-display-xs">Choose Your Package</h2>
+
+      <ul class="ex-pkg__grid" data-reveal-group>
+        <li class="ex-pkg djb-reveal">
+          <h3 class="ex-pkg__name">The Vibe</h3>
+          <ul class="ex-pkg__list">
+            <li>MC Announcements</li>
+            <li>Soft Lighting</li>
+            <li>High Quality DJ System</li>
+            <li>Up to 5 hrs</li>
+          </ul>
+        </li>
+        <li class="ex-pkg ex-pkg--featured djb-reveal">
+          <h3 class="ex-pkg__name">The Classic</h3>
+          <ul class="ex-pkg__list">
+            <li>The Vibe+</li>
+            <li>Dance Lighting</li>
+            <li>1 Add-On</li>
+            <li>Up to 6 hrs</li>
+          </ul>
+        </li>
+        <li class="ex-pkg djb-reveal">
+          <h3 class="ex-pkg__name">The Grande</h3>
+          <ul class="ex-pkg__list">
+            <li>The Classic+</li>
+            <li>3 Add-Ons</li>
+            <li>Up to 8 hrs</li>
+          </ul>
+        </li>
       </ul>
+
+      <p class="ex-pkg__all"><strong>Every package includes</strong> a consultation to plan the night, a custom playlist built with you, timeline planning, and setup and teardown.</p>
+
+      <div class="ex-addons djb-reveal">
+        <h3 class="ex-addons__title">Add-Ons</h3>
+        <ul class="ex-addons__grid">
+          <li>
+            <h4>Live Musician</h4>
+            <p>Guitarist + singer woven into your set (1–2 hours)</p>
+          </li>
+          <li>
+            <h4>Phone Footage</h4>
+            <p>Vertical and horizontal clips ready to share or keep</p>
+          </li>
+          <li>
+            <h4>Light Sticks</h4>
+            <p>Light-up foam sticks for a concert-like energy</p>
+          </li>
+          <li>
+            <h4>Duo Sound Set-Up</h4>
+            <p>Secondary sound system for multiple spaces</p>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -338,20 +465,6 @@
           <p class="djb-step__desc">I set up early, read the room, and keep it moving.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ADD-ONS -->
-  <section class="djb-bg-cotton" style="padding-block: clamp(64px, 7vw, 100px);" aria-labelledby="ex-add">
-    <div class="djb-wrap">
-      <h2 id="ex-add" class="djb-display-xs" style="margin-bottom: 40px;">Add-Ons</h2>
-      <ul class="djb-pills">
-        <li>Extra hours</li>
-        <li>Uplighting</li>
-        <li>Ceremony sound</li>
-        <li>Photo-booth-style extras</li>
-        <li>Bilingual MC</li>
-      </ul>
     </div>
   </section>
 
