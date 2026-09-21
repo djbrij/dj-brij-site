@@ -2,17 +2,17 @@
 
 /* ==========================================================================
    DJ BRI J — site-wide tokens and shared components
-   Palette pulled from her own photographs: cotton tee, bandana red,
-   sun-bleached terracotta, warm near-black.
+   Brand palette from Bri's own brand sheet (wine, cream, red, deep green),
+   plus warm neutrals pulled from her photographs.
    ========================================================================== */
 
 :root {
   /* Color */
-  --djb-red:      #B02E2C;  /* Bandana Red — accent only, never a field */
-  --djb-oxblood:  #631E1D;  /* Carnation — hover, deep dark fields */
-  --djb-pressed:  #4A1516;  /* Button active */
-  --djb-cotton:   #F6F0E6;  /* Primary light surface */
-  --djb-adobe:    #C17A4E;  /* Warm mid-tone field */
+  --djb-red:      #A52B28;  /* Brand red — accent only, never a field; never on green (1.8:1) */
+  --djb-oxblood:  #672B34;  /* Brand wine — hover, deep dark fields */
+  --djb-pressed:  #4C1F26;  /* Button active */
+  --djb-cotton:   #F5EFEB;  /* Brand cream — primary light surface */
+  --djb-green:    #1E3A0C;  /* Brand deep green — dark field, cream text only */
   --djb-stucco:   #DDD0BC;  /* Neutral, dividers, borders */
   --djb-ink:      #211815;  /* Body copy, dark sections */
   --djb-rose:     #E4A199;  /* Accent on dark only */
@@ -21,8 +21,8 @@
 
   --djb-ink-70: rgba(33, 24, 21, 0.7);
   --djb-ink-60: rgba(33, 24, 21, 0.6);
-  --djb-cotton-80: rgba(246, 240, 230, 0.8);
-  --djb-cotton-65: rgba(246, 240, 230, 0.65);
+  --djb-cotton-80: rgba(245, 239, 235, 0.8);
+  --djb-cotton-65: rgba(245, 239, 235, 0.65);
 
   /* Type */
   --djb-display: 'Anton', 'Arial Narrow', sans-serif;
@@ -102,7 +102,7 @@ button { font: inherit; }
 .djb-bg-cotton  { background: var(--djb-cotton); }
 .djb-bg-ink     { background: var(--djb-ink);    color: var(--djb-cotton); }
 .djb-bg-oxblood { background: var(--djb-oxblood); color: var(--djb-cotton); }
-.djb-bg-adobe   { background: var(--djb-adobe);  color: var(--djb-cotton); }
+.djb-bg-green   { background: var(--djb-green);  color: var(--djb-cotton); }
 .djb-bg-stucco  { background: var(--djb-stucco); }
 
 /* --------------------------------------------------------------------------
@@ -137,7 +137,7 @@ button { font: inherit; }
 }
 .djb-bg-ink .djb-eyebrow,
 .djb-bg-oxblood .djb-eyebrow { color: var(--djb-rose); }
-.djb-bg-adobe .djb-eyebrow { color: var(--djb-cotton); }
+.djb-bg-green .djb-eyebrow { color: var(--djb-cotton); }
 
 .djb-body     { font-size: 17px; line-height: 1.65; }
 .djb-body-l   { font-size: clamp(17px, 1.4vw, 19px); line-height: 1.7; }
@@ -184,12 +184,12 @@ button { font: inherit; }
 .djb-btn-ghost {
   color: var(--djb-cotton);
   background: transparent;
-  border-color: rgba(246, 240, 230, 0.6);
+  border-color: rgba(245, 239, 235, 0.6);
   padding: 16px 34px;
 }
 .djb-btn-ghost:hover {
   border-color: var(--djb-cotton);
-  background: rgba(246, 240, 230, 0.08);
+  background: rgba(245, 239, 235, 0.08);
   color: var(--djb-cotton);
 }
 
@@ -280,9 +280,9 @@ button { font: inherit; }
   line-height: 1.6;
 }
 .djb-ph--on-dark {
-  border-color: rgba(246, 240, 230, 0.28);
-  background: rgba(246, 240, 230, 0.06);
-  color: rgba(246, 240, 230, 0.5);
+  border-color: rgba(245, 239, 235, 0.28);
+  background: rgba(245, 239, 235, 0.06);
+  color: rgba(245, 239, 235, 0.5);
 }
 
 /* --------------------------------------------------------------------------
@@ -358,7 +358,7 @@ button { font: inherit; }
   border-bottom-color: transparent;
 }
 .djb-header--overlay .djb-header__logo img { filter: none; }
-.djb-header--overlay .djb-nav a { color: rgba(246, 240, 230, 0.78); }
+.djb-header--overlay .djb-nav a { color: rgba(245, 239, 235, 0.78); }
 .djb-header--overlay .djb-nav a:hover,
 .djb-header--overlay .djb-nav a[aria-current='page'] { color: var(--djb-cotton); }
 .djb-header--overlay .djb-burger span { background: var(--djb-cotton); }
@@ -513,11 +513,11 @@ body.djb-noscroll { overflow: hidden; }
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(246, 240, 230, 0.4);
+  color: rgba(245, 239, 235, 0.4);
   margin-bottom: 4px;
 }
 .djb-footer a.djb-foot-link {
-  color: rgba(246, 240, 230, 0.72);
+  color: rgba(245, 239, 235, 0.72);
   text-decoration: none;
   font-size: 15px;
   transition: color 0.2s var(--djb-ease);
@@ -529,7 +529,7 @@ body.djb-noscroll { overflow: hidden; }
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  border-bottom: 1px solid rgba(246, 240, 230, 0.3);
+  border-bottom: 1px solid rgba(245, 239, 235, 0.3);
   padding-bottom: 2px;
   align-self: flex-start;
   transition: color 0.2s var(--djb-ease), border-color 0.2s var(--djb-ease);
@@ -541,7 +541,7 @@ body.djb-noscroll { overflow: hidden; }
 .djb-footer__divider {
   max-width: var(--djb-max);
   margin: 0 auto;
-  border-top: 1px solid rgba(246, 240, 230, 0.12);
+  border-top: 1px solid rgba(245, 239, 235, 0.12);
   margin-inline: var(--djb-gutter);
 }
 
@@ -555,7 +555,7 @@ body.djb-noscroll { overflow: hidden; }
   gap: 24px;
   flex-wrap: wrap;
 }
-.djb-footer__copy { font-size: 13px; color: rgba(246, 240, 230, 0.4); }
+.djb-footer__copy { font-size: 13px; color: rgba(245, 239, 235, 0.4); }
 
 /* --------------------------------------------------------------------------
    Shared content components
