@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.github.io/dj-brij-site/ */
+/* SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.com/ */
 
 /* Mobile hamburger overlay + header condense-on-scroll. */
 (function () {

@@ -4,7 +4,7 @@
 
 The website for **DJ Bri J** (Briana Jasso) — a solo DJ in Dallas / Fort Worth playing weddings, quinceañeras, birthdays, family parties, and brand events. Built to be fast, warm, and dead simple to maintain. No CMS, no build step, no framework — just HTML, CSS, and a little JavaScript.
 
-🌐 [djbrij.github.io/dj-brij-site](https://djbrij.github.io/dj-brij-site/)
+🌐 [djbrij.com](https://djbrij.com/)
 
 ---
 
@@ -16,7 +16,7 @@ Most people find a DJ through a friend, then check the website before they call.
 
 ## Architecture
 
-- **Hosting** — GitHub Pages, deployed from the `docs/` folder on `main`. Merging to `main` is the deploy. Zero infrastructure.
+- **Hosting** — GitHub Pages, deployed from the `docs/` folder on `main` and served on the custom domain [djbrij.com](https://djbrij.com/). Merging to `main` is the deploy. Zero infrastructure.
 - **Design** — Started from a Claude Design direction, then refined against Bri's own brand sheet: wine, cream, and red, with Anton display type over Figtree body copy.
 - **Code** — Built and refined with Claude Code. Vanilla HTML, CSS, and JS, with two small scripts (`nav.js` for the mobile menu and header, `reveal.js` for scroll-in animation). No framework, no bundler, no dependencies.
 - **Static by design** — The header, mobile menu, and footer are duplicated in every page rather than injected by JavaScript, so crawlers and link-preview bots see them and there's no flash of unstyled content on refresh. Open Graph tags, canonical URLs, and JSON-LD are static in each page for the same reason.
@@ -55,7 +55,7 @@ Her story: an opening portrait and quote, her bio, a pull quote about the kitche
 A single-screen contact page. Phone, email, and social links, a short list of what to mention (event type, date, venue, guest count, the music the family loves), and what happens next. No form — just direct contact.
 
 ### 404
-A custom "This one's not in the crate." page. It uses absolute `/dj-brij-site/…` asset paths so it works from any depth on GitHub Pages, which means it only fully styles when served from that base path, not from a local preview.
+A custom "This one's not in the crate." page. It uses root-absolute asset paths (`/assets/…`) so it works from any depth, which means it only fully styles when `docs/` is served from the site root — on djbrij.com, or with `python3 -m http.server 8000 --directory docs`. Under Live Preview, which serves the whole repo, it looks unstyled.
 
 ---
 
@@ -68,6 +68,7 @@ docs/                       ← GitHub Pages serves from here
 ├── meet/index.html         ← Meet the DJ     → /meet/
 ├── quote/index.html        ← Get Quote       → /quote/
 ├── 404.html
+├── CNAME                   ← custom domain (djbrij.com)
 ├── robots.txt
 ├── ai.txt                  ← AI/LLM reuse policy
 ├── sitemap.xml
@@ -103,13 +104,16 @@ Display type is **Anton** and body type is **Figtree**, both from Google Fonts.
 
 ---
 
-## Moving to a Custom Domain
+## Custom Domain
 
-1. Add `docs/CNAME` containing the bare domain on one line.
-2. Find-replace `https://djbrij.github.io/dj-brij-site/` with the new origin across `docs/`. It appears in the `og:*`, `canonical`, and JSON-LD blocks, plus `robots.txt`, `sitemap.xml`, `ai.txt`, and the absolute paths in `404.html`.
-3. Point DNS `A` records at the GitHub Pages IPs and add a `CNAME` for `www`.
+The site is served from **djbrij.com**, with DNS managed at Squarespace.
 
-All other in-page asset and navigation paths are relative, so they need no changes.
+- **CNAME file** — [`docs/CNAME`](docs/CNAME) holds the bare domain, which is how GitHub Pages knows to serve it.
+- **DNS** — Four `A` and four `AAAA` records on the apex (`@`) pointing at GitHub Pages' addresses, and a `www` `CNAME` to `djbrij.github.io`, which redirects `www` to the bare domain. See [GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site) for the current addresses.
+- **HTTPS** — Enforced under **Settings → Pages** in the repo.
+- **Origin in the code** — `https://djbrij.com/` appears in the `og:*`, `canonical`, and JSON-LD blocks, in `robots.txt`, `sitemap.xml`, and `ai.txt`, and in the license comment at the top of the CSS and scripts. `404.html` uses root-absolute paths (`/assets/…`). Every other in-page asset and navigation path is relative.
+
+To move to a different domain, change `docs/CNAME`, find-replace `https://djbrij.com/` across `docs/`, and update the DNS records.
 
 ---
 
