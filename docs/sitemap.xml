@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.github.io/dj-brij-site/ -->
+<!-- SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.com/ -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://djbrij.github.io/dj-brij-site/</loc>
+    <loc>https://djbrij.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://djbrij.github.io/dj-brij-site/experience/</loc>
+    <loc>https://djbrij.com/experience/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://djbrij.github.io/dj-brij-site/meet/</loc>
+    <loc>https://djbrij.com/meet/</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://djbrij.github.io/dj-brij-site/quote/</loc>
+    <loc>https://djbrij.com/quote/</loc>
     <priority>0.9</priority>
   </url>
 </urlset>

@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.github.io/dj-brij-site/ */
+/* SPDX-License-Identifier: MIT · © 2026 Briana Jasso · https://djbrij.com/ */
 
 /* Scroll-in fade + short rise, staggered within a [data-reveal-group].
    Anything already in view on load reveals immediately. */

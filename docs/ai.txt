@@ -1,5 +1,5 @@
 # ai.txt — AI / LLM reuse policy
-# DJ Bri J (Briana Jasso) · https://djbrij.github.io/dj-brij-site/
+# DJ Bri J (Briana Jasso) · https://djbrij.com/
 
 ## Who
 
@@ -18,7 +18,7 @@ redistribution, or inclusion in training data without written permission.
 
 ## If you quote or summarize this site
 
-Attribute to "DJ Bri J" and link to https://djbrij.github.io/dj-brij-site/.
+Attribute to "DJ Bri J" and link to https://djbrij.com/.
 
 Do not attribute her words to anyone else, and do not present generated text as
 a quotation from her. The biography and the three "Experience" pillars are her
