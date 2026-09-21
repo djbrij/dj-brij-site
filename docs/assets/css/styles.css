@@ -12,7 +12,7 @@
   --djb-oxblood:  #672B34;  /* Brand wine — hover, deep dark fields */
   --djb-pressed:  #4C1F26;  /* Button active */
   --djb-cotton:   #F5EFEB;  /* Brand cream — primary light surface */
-  --djb-green:    #1E3A0C;  /* Brand deep green — dark field, cream text only */
+  --djb-green:    #1E3A0C;  /* Brand deep green — not in use right now; cream text only if used as a field */
   --djb-stucco:   #DDD0BC;  /* Neutral, dividers, borders */
   --djb-ink:      #211815;  /* Body copy, dark sections */
   --djb-rose:     #E4A199;  /* Accent on dark only */
@@ -102,7 +102,6 @@ button { font: inherit; }
 .djb-bg-cotton  { background: var(--djb-cotton); }
 .djb-bg-ink     { background: var(--djb-ink);    color: var(--djb-cotton); }
 .djb-bg-oxblood { background: var(--djb-oxblood); color: var(--djb-cotton); }
-.djb-bg-green   { background: var(--djb-green);  color: var(--djb-cotton); }
 .djb-bg-stucco  { background: var(--djb-stucco); }
 
 /* --------------------------------------------------------------------------
@@ -137,7 +136,6 @@ button { font: inherit; }
 }
 .djb-bg-ink .djb-eyebrow,
 .djb-bg-oxblood .djb-eyebrow { color: var(--djb-rose); }
-.djb-bg-green .djb-eyebrow { color: var(--djb-cotton); }
 
 .djb-body     { font-size: 17px; line-height: 1.65; }
 .djb-body-l   { font-size: clamp(17px, 1.4vw, 19px); line-height: 1.7; }
