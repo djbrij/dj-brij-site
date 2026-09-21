@@ -129,13 +129,73 @@
       margin: 0 auto;
     }
 
-    .mt-personal { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-    .mt-list { list-style: none; margin: 0; padding: 0; }
-    .mt-list li {
-      padding: 18px 0;
+    /* On Rotation — a setlist beside a slowly spinning record */
+    .mt-rotation__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: start; }
+    .mt-rotation__head h2 { margin-bottom: 40px; }
+
+    .mt-disc {
+      position: relative;
+      width: min(320px, 100%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      /* Grooves, plus a faint conic sheen so the rotation is actually visible. */
+      background:
+        conic-gradient(from 0deg, transparent 0 18%, rgba(245, 239, 235, 0.1) 25%, transparent 32% 68%, rgba(245, 239, 235, 0.1) 75%, transparent 82%),
+        repeating-radial-gradient(circle at center, #211815 0 2px, #2c211d 2px 4px);
+      box-shadow: 0 18px 40px rgba(33, 24, 21, 0.28);
+      animation: mt-spin 24s linear infinite;
+    }
+    .mt-disc::before { /* label */
+      content: '';
+      position: absolute;
+      inset: 33%;
+      border-radius: 50%;
+      background: var(--djb-oxblood) url('../assets/img/logo-mark.png') center / 62% no-repeat;
+    }
+    .mt-disc::after { /* spindle hole */
+      content: '';
+      position: absolute;
+      inset: 48.5%;
+      border-radius: 50%;
+      background: var(--djb-cotton);
+    }
+    @keyframes mt-spin { to { transform: rotate(360deg); } }
+
+    .mt-tracks { list-style: none; margin: 0; padding: 0; }
+    .mt-tracks li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: baseline;
+      padding: 22px 0;
       border-bottom: 1px solid var(--djb-stucco);
-      font-size: 16px;
-      color: var(--djb-ink-70);
+    }
+    .mt-tracks li:first-child { border-top: 1px solid var(--djb-stucco); }
+    .mt-track__n {
+      min-width: 1.6em;
+      margin-right: 28px;
+      font-family: var(--djb-display);
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1;
+      color: rgba(103, 43, 52, 0.35);
+      transition: color 0.25s var(--djb-ease);
+    }
+    /* The nudge is on the title, not the <li>: .djb-reveal.is-visible sets
+       transform: none on the row, which would cancel it. */
+    .mt-track__title {
+      font-family: var(--djb-display);
+      font-size: clamp(30px, 4.4vw, 52px);
+      line-height: 1.05;
+      color: var(--djb-ink);
+      transition: color 0.25s var(--djb-ease), transform 0.25s var(--djb-ease);
+    }
+    @media (hover: hover) {
+      .mt-tracks li:hover .mt-track__title { color: var(--djb-oxblood); transform: translateX(8px); }
+      .mt-tracks li:hover .mt-track__n { color: var(--djb-red); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mt-disc { animation: none; }
+      .mt-track__n, .mt-track__title { transition: none; }
+      .mt-tracks li:hover .mt-track__title { transform: none; }
     }
 
     .mt-socials { max-width: 780px; }
@@ -169,7 +229,14 @@
     @media (max-width: 900px) {
       .mt-open { grid-template-columns: 1fr; gap: 40px; }
       .mt-open img { height: 460px; }
-      .mt-personal { grid-template-columns: 1fr; gap: 48px; }
+      .mt-rotation__grid { grid-template-columns: 1fr; gap: 40px; }
+      .mt-rotation__head h2 { margin-bottom: 28px; }
+      .mt-disc { width: 220px; }
+    }
+
+    @media (max-width: 560px) {
+      .mt-tracks li { padding: 18px 0; }
+      .mt-track__n { margin-right: 16px; }
     }
   </style>
 </head>
@@ -250,25 +317,21 @@
     </div>
   </section>
 
-  <!-- PERSONAL LAYER -->
-  <section class="djb-section djb-bg-cotton" aria-label="A little more about me">
-    <div class="djb-wrap mt-personal">
-      <div>
-        <h2 class="djb-display-xs" style="margin-bottom: 32px;">On Rotation</h2>
-        <ul class="mt-list">
-          <li>[Placeholder — artist or track she has on rotation]</li>
-          <li>[Placeholder — artist or track she has on rotation]</li>
-          <li>[Placeholder — artist or track she has on rotation]</li>
-        </ul>
+  <!-- ON ROTATION -->
+  <section class="djb-section djb-bg-cotton mt-rotation" aria-labelledby="mt-rot-h">
+    <div class="djb-wrap mt-rotation__grid">
+      <div class="mt-rotation__head">
+        <p class="djb-eyebrow" style="margin-bottom: 18px;">Right now</p>
+        <h2 id="mt-rot-h" class="djb-display-m">On Rotation</h2>
+        <div class="mt-disc" aria-hidden="true"></div>
       </div>
-      <div>
-        <h2 class="djb-display-xs" style="margin-bottom: 32px;">A Few Things</h2>
-        <ul class="mt-list">
-          <li>[Placeholder — one-line personal fact]</li>
-          <li>[Placeholder — one-line personal fact]</li>
-          <li>[Placeholder — one-line personal fact]</li>
-        </ul>
-      </div>
+      <ol class="mt-tracks" data-reveal-group>
+        <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">01</span><span class="mt-track__title">Juana La Cubana</span></li>
+        <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">02</span><span class="mt-track__title">El Baile Del Gorila</span></li>
+        <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">03</span><span class="mt-track__title">Knuck If You Buck</span></li>
+        <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">04</span><span class="mt-track__title">Love — Keyshia Cole</span></li>
+        <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">05</span><span class="mt-track__title">Laffy Taffy</span></li>
+      </ol>
     </div>
   </section>
 
