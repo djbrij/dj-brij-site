@@ -164,15 +164,15 @@
     .mt-tracks { list-style: none; margin: 0; padding: 0; }
     .mt-tracks li {
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr;
       align-items: baseline;
-      column-gap: 28px;
       padding: 22px 0;
       border-bottom: 1px solid var(--djb-stucco);
     }
     .mt-tracks li:first-child { border-top: 1px solid var(--djb-stucco); }
     .mt-track__n {
       min-width: 1.6em;
+      margin-right: 28px;
       font-family: var(--djb-display);
       font-size: clamp(26px, 3vw, 36px);
       line-height: 1;
@@ -187,14 +187,6 @@
       line-height: 1.05;
       color: var(--djb-ink);
       transition: color 0.25s var(--djb-ease), transform 0.25s var(--djb-ease);
-    }
-    .mt-track__artist {
-      font-family: var(--djb-body);
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--djb-ink-70);
     }
     @media (hover: hover) {
       .mt-tracks li:hover .mt-track__title { color: var(--djb-oxblood); transform: translateX(8px); }
@@ -243,8 +235,8 @@
     }
 
     @media (max-width: 560px) {
-      .mt-tracks li { grid-template-columns: auto 1fr; column-gap: 16px; padding: 18px 0; }
-      .mt-track__artist { grid-column: 2; margin-top: 6px; }
+      .mt-tracks li { padding: 18px 0; }
+      .mt-track__n { margin-right: 16px; }
     }
   </style>
 </head>
@@ -337,7 +329,7 @@
         <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">01</span><span class="mt-track__title">Juana La Cubana</span></li>
         <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">02</span><span class="mt-track__title">El Baile Del Gorila</span></li>
         <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">03</span><span class="mt-track__title">Knuck If You Buck</span></li>
-        <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">04</span><span class="mt-track__title">Love</span><span class="mt-track__artist">Keyshia Cole</span></li>
+        <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">04</span><span class="mt-track__title">Love — Keyshia Cole</span></li>
         <li class="djb-reveal"><span class="mt-track__n" aria-hidden="true">05</span><span class="mt-track__title">Laffy Taffy</span></li>
       </ol>
     </div>
