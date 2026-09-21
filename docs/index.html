@@ -198,13 +198,18 @@
 
     .hm-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px 40px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 32px;
     }
-    .hm-card__media { height: 280px; margin-bottom: 24px; }
-    .hm-card__media img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
+    .hm-card__media { aspect-ratio: 4 / 5; overflow: hidden; margin-bottom: 24px; border-radius: 2px; }
+    .hm-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    /* Grid items stretch to the row height, so pushing the link to the bottom
+       keeps "Learn more" aligned when descriptions wrap to different lengths. */
+    .hm-card { display: flex; flex-direction: column; align-items: flex-start; }
+    .hm-card__media { align-self: stretch; }
     .hm-card h3 { margin-bottom: 10px; }
     .hm-card p { margin-bottom: 14px; max-width: 480px; color: rgba(33, 24, 21, 0.8); }
+    .hm-card .djb-link-arrow { margin-top: auto; }
 
     .hm-why { position: relative; overflow: hidden; }
     .hm-why__drop {
@@ -310,14 +315,15 @@
       .hm-proof__stat span { margin-inline: 0; }
       .hm-teaser { grid-template-columns: 1fr; gap: 40px; }
       .hm-teaser img { height: 440px; }
+      /* Three columns get too narrow below this; one capped column keeps the
+         4:5 photos from ballooning to ~900px tall on tablets. */
+      .hm-grid { grid-template-columns: 1fr; gap: 48px; max-width: 480px; }
     }
 
     @media (max-width: 768px) {
       .hm-hero { height: 88svh; min-height: 560px; }
       .hm-hero__cta .djb-btn { flex: 1 1 auto; text-align: center; }
       .hm-scrollcue { display: none; }
-      .hm-grid { grid-template-columns: 1fr; gap: 48px; }
-      .hm-card__media { height: 240px; }
       .hm-why__drop { width: 340px; height: 340px; right: -120px; top: -100px; }
       .hm-teaser img { height: 380px; }
     }
@@ -409,35 +415,48 @@
   <!-- WHAT I PLAY -->
   <section class="djb-section djb-bg-cotton" aria-labelledby="hm-play">
     <div class="djb-wrap">
-      <p class="djb-eyebrow" style="margin-bottom: 18px;">What I Play</p>
-      <h2 id="hm-play" class="djb-display-m" style="margin-bottom: 64px; max-width: 700px;">Four rooms, one DJ.</h2>
+      <h2 id="hm-play" class="djb-display-m" style="margin-bottom: 64px; max-width: 700px;">What I Play</h2>
       <div class="hm-grid" data-reveal-group>
 
         <article class="hm-card djb-reveal">
-          <div class="hm-card__media djb-ph">[Placeholder — wedding reception, wide shot]</div>
+          <div class="hm-card__media">
+            <img src="assets/img/play-wedding.jpg"
+                 srcset="assets/img/play-wedding-sm.jpg 800w, assets/img/play-wedding.jpg 1400w"
+                 sizes="(min-width: 901px) 349px, min(480px, calc(100vw - 48px))"
+                 alt="A bride and groom dancing with wedding guests on a wooden dance floor under string lights"
+                 loading="lazy" decoding="async" width="1400" height="933"
+                 style="object-position: 20% 50%;" />
+          </div>
           <h3 class="djb-h3">Weddings</h3>
-          <p class="djb-body">I build the night around your two families finding common ground on the dance floor.</p>
+          <p class="djb-body">A night for both families on one dance floor.</p>
           <a class="djb-link-arrow" href="experience/">Learn more →</a>
         </article>
 
         <article class="hm-card djb-reveal">
-          <div class="hm-card__media djb-ph">[Placeholder — quinceañera, dance floor]</div>
-          <h3 class="djb-h3">Quinceañeras &amp; Birthdays</h3>
-          <p class="djb-body">The kind of set where the birthday song and the reggaetón hit land with the same energy.</p>
+          <div class="hm-card__media">
+            <img src="assets/img/play-birthday.jpg"
+                 srcset="assets/img/play-birthday-sm.jpg 800w, assets/img/play-birthday.jpg 1400w"
+                 sizes="(min-width: 901px) 349px, min(480px, calc(100vw - 48px))"
+                 alt="Guests dancing at a birthday party under colorful paper banners and pink tinsel, lit in magenta"
+                 loading="lazy" decoding="async" width="1400" height="1556"
+                 style="object-position: 60% 50%;" />
+          </div>
+          <h3 class="djb-h3">Birthdays</h3>
+          <p class="djb-body">The party that everyone talks about the next day.</p>
           <a class="djb-link-arrow" href="experience/">Learn more →</a>
         </article>
 
         <article class="hm-card djb-reveal">
-          <div class="hm-card__media djb-ph">[Placeholder — backyard family party]</div>
-          <h3 class="djb-h3">Family Parties</h3>
-          <p class="djb-body">Backyard, banda, and everybody's tíos requesting one more cumbia.</p>
-          <a class="djb-link-arrow" href="experience/">Learn more →</a>
-        </article>
-
-        <article class="hm-card djb-reveal">
-          <div class="hm-card__media djb-ph">[Placeholder — corporate / brand event]</div>
-          <h3 class="djb-h3">Brand Events</h3>
-          <p class="djb-body">Professional setup, sharp transitions, a crowd that stays on the floor.</p>
+          <div class="hm-card__media">
+            <img src="assets/img/play-social.jpg"
+                 srcset="assets/img/play-social-sm.jpg 800w, assets/img/play-social.jpg 1206w"
+                 sizes="(min-width: 901px) 349px, min(480px, calc(100vw - 48px))"
+                 alt="Black-and-white photo of a DJ at the decks under a patio umbrella while two people dance nearby"
+                 loading="lazy" decoding="async" width="1206" height="2058"
+                 style="object-position: 50% 80%;" />
+          </div>
+          <h3 class="djb-h3">Socials &amp; Nightlife</h3>
+          <p class="djb-body">More than a booking. A collaboration.</p>
           <a class="djb-link-arrow" href="experience/">Learn more →</a>
         </article>
 
