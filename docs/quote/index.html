@@ -86,6 +86,8 @@
 
   <style>
     /* Get Quote — page-only layout. No hero image competing with the ask. */
+    .gq-head { padding: clamp(64px, 7.6vw, 110px) 0 clamp(48px, 4.9vw, 70px); }
+    .gq-formsec { padding: 40px 0 clamp(80px, 9vw, 130px); }
     .gq-head h1 { max-width: 760px; margin-bottom: 20px; }
     .gq-head p { font-size: clamp(17px, 1.5vw, 18px); color: rgba(33, 24, 21, 0.75); max-width: 560px; }
 
@@ -205,7 +207,6 @@
       .gq-next { flex-direction: column; gap: 36px; }
     }
 
-    @media (max-width: 1100px) { .gq-form { --gq-form-h: 2059px; } }
     @media (max-width: 767px)  { .gq-form { --gq-form-h: 2089px; } }
     @media (max-width: 699px)  { .gq-form { --gq-form-h: 2129px; } }
     @media (max-width: 649px)  { .gq-form { --gq-form-h: 2154px; } }
@@ -227,6 +228,71 @@
     @media (prefers-reduced-motion: reduce) {
       .gq-form-panel.is-pending::after { animation: none; }
       .gq-form { transition: none; }
+    }
+
+    /* The form is the centerpiece at every width: a wine "stage" behind the
+       heading, the form panel centered (640px max) and overlapping its bottom
+       edge, and the contact details in a quiet row underneath. These rules
+       override the earlier two-column layout above. */
+    .gq-head {
+      background: var(--djb-oxblood);
+      padding-top: clamp(56px, 5.4vw, 80px);
+      padding-bottom: 56px;
+      text-align: center;
+    }
+    .gq-head h1 { font-size: clamp(36px, 4.6vw, 56px); color: var(--djb-cotton); margin-inline: auto; }
+    .gq-head .djb-eyebrow { color: var(--djb-rose); }
+    .gq-head p { color: var(--djb-cotton-80); margin-inline: auto; }
+
+    /* The wine carries on behind the top of the form, so the panel overlaps
+       the band's bottom edge. */
+    .gq-formsec {
+      /* Tuck 1px under the heading band: where two sections meet on a
+         fractional pixel (device pixel ratios like 1.7 or 2.625), a hairline
+         of the page background can show through the seam. */
+      margin-top: -1px;
+      padding-top: 1px;
+      background: linear-gradient(to bottom, var(--djb-oxblood) 0, var(--djb-oxblood) 151px, var(--djb-cotton) 151px);
+    }
+    .gq-cols {
+      grid-template-columns: minmax(0, 640px);
+      justify-content: center;
+      gap: 0;
+    }
+    .gq-formcol { grid-column: 1; grid-row: 1; }
+    .gq-form-panel {
+      box-shadow: 0 30px 70px rgba(33, 24, 21, 0.28), 0 4px 14px rgba(33, 24, 21, 0.1);
+      background: var(--djb-cotton);
+      border-top-width: 0;
+    }
+    .gq-form-fallback { text-align: center; }
+
+    .gq-contact {
+      grid-column: 1;
+      grid-row: 2;
+      position: static;
+      margin-top: 72px;
+      padding-top: 44px;
+      border-top: 1px solid var(--djb-stucco);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+      column-gap: 44px;
+      row-gap: 14px;
+      text-align: center;
+    }
+    .gq-contact > .djb-eyebrow { flex-basis: 100%; margin-bottom: 4px !important; }
+    .gq-contact-link { font-size: clamp(24px, 2.4vw, 30px); }
+    .gq-contact-link + .gq-contact-link { margin-top: 0; }
+    .gq-note { flex-basis: 100%; margin: 6px auto 4px; max-width: 520px; }
+    .gq-socials { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 12px 28px; flex-basis: 100%; }
+
+    /* Phones: a shorter wine overlap and a tighter gap under the intro line. */
+    @media (max-width: 767px) {
+      .gq-head { padding-bottom: 28px; }
+      .gq-formsec { background: linear-gradient(to bottom, var(--djb-oxblood) 0, var(--djb-oxblood) 81px, var(--djb-cotton) 81px); }
+      .gq-contact { margin-top: 56px; padding-top: 36px; }
     }
   </style>
 </head>
@@ -275,16 +341,16 @@
 <main id="main" class="djb-page">
 
   <!-- HEADER -->
-  <section class="djb-bg-cotton gq-head" style="padding: clamp(64px, 7.6vw, 110px) 0 clamp(48px, 4.9vw, 70px);">
+  <section class="djb-bg-cotton gq-head">
     <div class="djb-wrap">
       <p class="djb-eyebrow" style="margin-bottom: 18px;">Get Quote</p>
       <h1 class="djb-display-l">Tell me about your celebration.</h1>
-      <p>Fill out the form and I'll get back to you within 24–48 hours. Rather talk? Call or text anytime.</p>
+      <p>Fill out the form and I'll get back to you within 24–48 hours.</p>
     </div>
   </section>
 
   <!-- REQUEST FORM + CONTACT -->
-  <section class="djb-bg-cotton" style="padding: 40px 0 clamp(80px, 9vw, 130px);">
+  <section class="djb-bg-cotton gq-formsec">
     <div class="djb-wrap gq-cols">
 
       <div class="gq-formcol">
