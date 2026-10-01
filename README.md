@@ -10,7 +10,7 @@ The website for **DJ Bri J** (Briana Jasso) — a solo DJ in Dallas / Fort Worth
 
 ## Purpose
 
-Most people find a DJ through a friend, then check the website before they call. This site gives them one place to hear her sound, see what a night with her actually looks like and what the packages are, read her story, and get in touch. Every event is quoted individually — there's no checkout and no form, just a direct line to Bri.
+Most people find a DJ through a friend, then check the website before they call. This site gives them one place to hear her sound, see what a night with her actually looks like and what the packages are, read her story, and get in touch. Every event is quoted individually — there's no checkout, just a booking-request form and a direct line to Bri.
 
 ---
 
@@ -21,6 +21,7 @@ Most people find a DJ through a friend, then check the website before they call.
 - **Code** — Built and refined with Claude Code. Vanilla HTML, CSS, and JS, with two small scripts (`nav.js` for the mobile menu and header, `reveal.js` for scroll-in animation). No framework, no bundler, no dependencies.
 - **Static by design** — The header, mobile menu, and footer are duplicated in every page rather than injected by JavaScript, so crawlers and link-preview bots see them and there's no flash of unstyled content on refresh. Open Graph tags, canonical URLs, and JSON-LD are static in each page for the same reason.
 - **Identity** — JSON-LD `Person` and `ProfessionalService` data on each of the four main pages, `FAQPage` data on The Experience, and `rel="me"` social links, so search engines know exactly who and what this site is about.
+- **Booking form** — A Google Form embedded as an iframe on Get Quote, so responses land in Bri's Google account with no backend. It's cross-origin and can't be restyled, so the page styles everything around it: a panel, a loading state, per-width frame heights (the form's height can't be measured from outside), a resize to fit the thank-you message, and a plain link as a fallback.
 - **Media** — Photos are exported at web size as a full and an `-sm` JPEG and served with `srcset`, lazy-loaded below the fold. Home embeds a SoundCloud mix.
 - **Motion** — Scroll-in fades, plus a slowly spinning record on the Meet page. All of it switches off under `prefers-reduced-motion`. A transform on a `.djb-reveal` element is cancelled once it reveals, so lift and nudge effects go on margins or child elements instead.
 - **AI policy** — [`docs/ai.txt`](docs/ai.txt) states how the site's content may be reused by AI tools.
@@ -52,7 +53,7 @@ How a night with her works. Three photo pillars (curating your sound, reading th
 Her story: an opening portrait and quote, her bio, a pull quote about the kitchen radio, and **On Rotation** — a numbered setlist of what she has on repeat right now, beside a slowly spinning record. Then links to her Instagram, TikTok, and Facebook, and a closing call to action.
 
 ### Get Quote
-A single-screen contact page. Phone, email, and social links, a short list of what to mention (event type, date, venue, guest count, the music the family loves), and what happens next. No form — just direct contact.
+A booking-request page. An embedded Google Form (event type, date, venue, guest count, the vibe and music, and how they found her) sits in a panel styled to match the site, beside phone, email, and social links for anyone who'd rather talk, with what happens next below. After someone submits, the frame shrinks to fit Google's thank-you message and scrolls into view.
 
 ### 404
 A custom "This one's not in the crate." page. It uses root-absolute asset paths (`/assets/…`) so it works from any depth, which means it only fully styles when `docs/` is served from the site root — on djbrij.com, or with `python3 -m http.server 8000 --directory docs`. Under Live Preview, which serves the whole repo, it looks unstyled.
