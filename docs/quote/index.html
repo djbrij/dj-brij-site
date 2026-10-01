@@ -117,10 +117,11 @@
     }
     /* The form's height can't be measured from outside, so it's set per width.
        Each tier is the form's real height at the narrowest width in the band
-       (measured at 28 widths from 320 to 1440) plus about 28px for Google's
-       footer, so there's no inner scrollbar and little spare space. */
+       (measured at 28 widths from 320 to 1440) plus about 92px: Google's footer
+       padding, plus room for its fixed 48px "?" help button, which is pinned to
+       the bottom-left of the frame and would otherwise sit on the footer. */
     .gq-form {
-      --gq-form-h: 2025px;
+      --gq-form-h: 2089px;
       display: block;
       width: 100%;
       height: var(--gq-form-h);
@@ -204,20 +205,20 @@
       .gq-next { flex-direction: column; gap: 36px; }
     }
 
-    @media (max-width: 1100px) { .gq-form { --gq-form-h: 1995px; } }
-    @media (max-width: 767px)  { .gq-form { --gq-form-h: 2025px; } }
-    @media (max-width: 699px)  { .gq-form { --gq-form-h: 2065px; } }
-    @media (max-width: 649px)  { .gq-form { --gq-form-h: 2090px; } }
-    @media (max-width: 599px)  { .gq-form { --gq-form-h: 2115px; } }
-    @media (max-width: 499px)  { .gq-form { --gq-form-h: 2160px; } }
-    @media (max-width: 459px)  { .gq-form { --gq-form-h: 2205px; } }
-    @media (max-width: 419px)  { .gq-form { --gq-form-h: 2250px; } }
-    @media (max-width: 399px)  { .gq-form { --gq-form-h: 2300px; } }
-    @media (max-width: 379px)  { .gq-form { --gq-form-h: 2335px; } }
-    @media (max-width: 359px)  { .gq-form { --gq-form-h: 2360px; } }
-    @media (max-width: 349px)  { .gq-form { --gq-form-h: 2435px; } }
-    @media (max-width: 339px)  { .gq-form { --gq-form-h: 2455px; } }
-    @media (max-width: 329px)  { .gq-form { --gq-form-h: 2495px; } }
+    @media (max-width: 1100px) { .gq-form { --gq-form-h: 2059px; } }
+    @media (max-width: 767px)  { .gq-form { --gq-form-h: 2089px; } }
+    @media (max-width: 699px)  { .gq-form { --gq-form-h: 2129px; } }
+    @media (max-width: 649px)  { .gq-form { --gq-form-h: 2154px; } }
+    @media (max-width: 599px)  { .gq-form { --gq-form-h: 2179px; } }
+    @media (max-width: 499px)  { .gq-form { --gq-form-h: 2224px; } }
+    @media (max-width: 459px)  { .gq-form { --gq-form-h: 2269px; } }
+    @media (max-width: 419px)  { .gq-form { --gq-form-h: 2314px; } }
+    @media (max-width: 399px)  { .gq-form { --gq-form-h: 2364px; } }
+    @media (max-width: 379px)  { .gq-form { --gq-form-h: 2399px; } }
+    @media (max-width: 359px)  { .gq-form { --gq-form-h: 2424px; } }
+    @media (max-width: 349px)  { .gq-form { --gq-form-h: 2499px; } }
+    @media (max-width: 339px)  { .gq-form { --gq-form-h: 2519px; } }
+    @media (max-width: 329px)  { .gq-form { --gq-form-h: 2559px; } }
 
     @media (max-width: 700px) {
       .gq-form-panel { padding: 8px 8px 0; }
@@ -290,7 +291,7 @@
         <div class="gq-form-panel" id="gq-form-panel">
           <iframe class="gq-form" title="Booking request form"
                   src="https://docs.google.com/forms/d/e/1FAIpQLSeAl0QE6jEMMCKXATu4dndRAHTsAimhQLR2Wo6aNXzFeIzCrQ/viewform?embedded=true"
-                  loading="lazy" width="100%" height="2030">Loading…</iframe>
+                  loading="lazy" width="100%" height="2094">Loading…</iframe>
         </div>
         <p class="gq-form-fallback"><a class="djb-link-arrow" href="https://forms.gle/NypGqJifqLgokhuf6" target="_blank" rel="noopener">Form not loading? Open it in a new tab →</a></p>
       </div>
