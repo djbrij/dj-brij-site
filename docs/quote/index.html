@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Get Quote — DJ Bri J</title>
-  <meta name="description" content="Call, text, or email DJ Bri J at (469) 708-8186 or briana.jasso@gmail.com. Every event is quoted individually, and I reply within 24–48 hours." />
+  <meta name="description" content="Send DJ Bri J a booking request, or call, text, or email (469) 708-8186 / briana.jasso@gmail.com. Every event is quoted individually, and I reply within 24–48 hours." />
   <link rel="canonical" href="https://djbrij.com/quote/" />
 
   <meta property="og:title" content="Get Quote — DJ Bri J" />
-  <meta property="og:description" content="Tell me about your celebration. Call, text, or email — I reply within 24–48 hours." />
+  <meta property="og:description" content="Tell me about your celebration. Send a request or call, text, or email — I reply within 24–48 hours." />
   <meta property="og:image" content="https://djbrij.com/assets/img/og-cover.jpg" />
   <meta property="og:url" content="https://djbrij.com/quote/" />
   <meta property="og:type" content="website" />
@@ -89,7 +89,73 @@
     .gq-head h1 { max-width: 760px; margin-bottom: 20px; }
     .gq-head p { font-size: clamp(17px, 1.5vw, 18px); color: rgba(33, 24, 21, 0.75); max-width: 560px; }
 
-    .gq-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    /* Form on the right at its natural 640px, contact on the left. The form is
+       first in the HTML so it also comes first once the columns stack. */
+    .gq-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 640px);
+      gap: 72px;
+      align-items: start;
+    }
+    .gq-formcol { grid-column: 2; grid-row: 1; }
+    .gq-contact { grid-column: 1; grid-row: 1; position: sticky; top: calc(var(--djb-header-h) + 32px); }
+
+    /* The Google Form is a cross-origin iframe, so it can't be restyled and its
+       height can't be read. The panel makes it sit on the page like a native
+       card: the same wine top rule as the form's own header bar, the site's
+       small radius, and a stucco tint behind Google's white cards. */
+    .gq-form-panel {
+      position: relative;
+      padding: 12px 12px 0;
+      background: rgba(221, 208, 188, 0.4);
+      border-top: 4px solid var(--djb-oxblood);
+      border-radius: 4px;
+      box-shadow: 0 18px 40px rgba(33, 24, 21, 0.08);
+      overflow: hidden;
+      /* So scrolling the panel into view doesn't tuck it under the sticky header. */
+      scroll-margin-top: calc(var(--djb-header-h) + 8px);
+    }
+    /* The form's height can't be measured from outside, so it's set per width.
+       Each tier is the form's real height at the narrowest width in the band
+       (measured at 28 widths from 320 to 1440) plus about 28px for Google's
+       footer, so there's no inner scrollbar and little spare space. */
+    .gq-form {
+      --gq-form-h: 2025px;
+      display: block;
+      width: 100%;
+      height: var(--gq-form-h);
+      border: 0;
+      transition: opacity 0.35s var(--djb-ease);
+    }
+    /* Added by the script below, so with JS off the form simply shows. */
+    .gq-form-panel.is-pending .gq-form { opacity: 0; }
+    .gq-form-panel.is-pending::after {
+      content: 'Loading the form\2026';
+      position: absolute;
+      top: 96px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: var(--djb-body);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--djb-ink-70);
+      animation: gq-pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes gq-pulse { 50% { opacity: 0.35; } }
+    /* After submitting, Google swaps in a short thank-you page. */
+    .gq-form-panel.is-sent .gq-form { height: var(--gq-sent-h); }
+    /* Measured from real thank-you pages (226px at 1200, 273 at 420, ~345 at
+       360-390, 391 at 320-340) plus Google's footer padding. The title wraps
+       to more lines as the frame narrows. */
+    .gq-form { --gq-sent-h: 260px; }
+    @media (max-width: 767px) { .gq-form { --gq-sent-h: 305px; } }
+    @media (max-width: 419px) { .gq-form { --gq-sent-h: 380px; } }
+    @media (max-width: 359px) { .gq-form { --gq-sent-h: 420px; } }
+
+    .gq-form-fallback { margin-top: 20px; }
 
     .gq-contact-link {
       display: block;
@@ -127,9 +193,39 @@
     .gq-next .djb-step__title { font-size: 17px; }
     .gq-next .djb-step__n { margin-bottom: 18px; }
 
+    /* A 640px form plus a readable contact column needs about 1100px. */
+    @media (max-width: 1100px) {
+      .gq-cols { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+      .gq-formcol, .gq-contact { grid-column: 1; grid-row: auto; }
+      .gq-contact { position: static; }
+    }
+
     @media (max-width: 900px) {
-      .gq-cols { grid-template-columns: 1fr; gap: 56px; }
       .gq-next { flex-direction: column; gap: 36px; }
+    }
+
+    @media (max-width: 1100px) { .gq-form { --gq-form-h: 1995px; } }
+    @media (max-width: 767px)  { .gq-form { --gq-form-h: 2025px; } }
+    @media (max-width: 699px)  { .gq-form { --gq-form-h: 2065px; } }
+    @media (max-width: 649px)  { .gq-form { --gq-form-h: 2090px; } }
+    @media (max-width: 599px)  { .gq-form { --gq-form-h: 2115px; } }
+    @media (max-width: 499px)  { .gq-form { --gq-form-h: 2160px; } }
+    @media (max-width: 459px)  { .gq-form { --gq-form-h: 2205px; } }
+    @media (max-width: 419px)  { .gq-form { --gq-form-h: 2250px; } }
+    @media (max-width: 399px)  { .gq-form { --gq-form-h: 2300px; } }
+    @media (max-width: 379px)  { .gq-form { --gq-form-h: 2335px; } }
+    @media (max-width: 359px)  { .gq-form { --gq-form-h: 2360px; } }
+    @media (max-width: 349px)  { .gq-form { --gq-form-h: 2435px; } }
+    @media (max-width: 339px)  { .gq-form { --gq-form-h: 2455px; } }
+    @media (max-width: 329px)  { .gq-form { --gq-form-h: 2495px; } }
+
+    @media (max-width: 700px) {
+      .gq-form-panel { padding: 8px 8px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gq-form-panel.is-pending::after { animation: none; }
+      .gq-form { transition: none; }
     }
   </style>
 </head>
@@ -182,16 +278,25 @@
     <div class="djb-wrap">
       <p class="djb-eyebrow" style="margin-bottom: 18px;">Get Quote</p>
       <h1 class="djb-display-l">Tell me about your celebration.</h1>
-      <p>Reach out by phone or email and I'll reply within 24–48 hours.</p>
+      <p>Fill out the form and I'll get back to you within 24–48 hours. Rather talk? Call or text anytime.</p>
     </div>
   </section>
 
-  <!-- CONTACT + GUIDANCE -->
+  <!-- REQUEST FORM + CONTACT -->
   <section class="djb-bg-cotton" style="padding: 40px 0 clamp(80px, 9vw, 130px);">
     <div class="djb-wrap gq-cols">
 
-      <div>
-        <p class="djb-eyebrow" style="margin-bottom: 24px;">Reach Me Directly</p>
+      <div class="gq-formcol">
+        <div class="gq-form-panel" id="gq-form-panel">
+          <iframe class="gq-form" title="Booking request form"
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSeAl0QE6jEMMCKXATu4dndRAHTsAimhQLR2Wo6aNXzFeIzCrQ/viewform?embedded=true"
+                  loading="lazy" width="100%" height="2030">Loading…</iframe>
+        </div>
+        <p class="gq-form-fallback"><a class="djb-link-arrow" href="https://forms.gle/NypGqJifqLgokhuf6" target="_blank" rel="noopener">Form not loading? Open it in a new tab →</a></p>
+      </div>
+
+      <div class="gq-contact">
+        <p class="djb-eyebrow" style="margin-bottom: 24px;">Prefer to talk?</p>
         <a class="gq-contact-link" href="tel:+14697088186">(469) 708-8186</a>
         <a class="gq-contact-link" href="mailto:briana.jasso@gmail.com">briana.jasso@gmail.com</a>
         <p class="gq-note">Call, text, or email — whatever's easiest. Every event is quoted individually once I know a few details about your night.</p>
@@ -200,18 +305,6 @@
           <a href="https://www.tiktok.com/@djbri.j" rel="me noopener" target="_blank">TikTok — @djbri.j</a>
           <a href="https://www.facebook.com/djbrijofficial" rel="me noopener" target="_blank">Facebook — /djbrijofficial</a>
         </div>
-      </div>
-
-      <div>
-        <p class="djb-eyebrow" style="margin-bottom: 24px;">When You Reach Out, Tell Me</p>
-        <ul class="djb-checklist">
-          <li class="djb-check-item">Event type — wedding, quinceañera, birthday, family party, or brand event</li>
-          <li class="djb-check-item">Event date, or "not sure yet"</li>
-          <li class="djb-check-item">Venue or city</li>
-          <li class="djb-check-item">Estimated guest count</li>
-          <li class="djb-check-item">The music your family loves</li>
-          <li class="djb-check-item">How you found me (optional)</li>
-        </ul>
       </div>
 
     </div>
@@ -281,6 +374,31 @@
 
 <script src="../assets/js/nav.js"></script>
 <script src="../assets/js/reveal.js"></script>
+<script>
+  /* Google Form embed. It's cross-origin, so the page can only see when the
+     iframe loads. First load = the form; a second load means Google swapped in
+     its thank-you page, so shrink the frame to fit and bring it into view.
+     A third load ("Submit another response") restores the full form. */
+  (function () {
+    var panel = document.getElementById('gq-form-panel');
+    var frame = panel && panel.querySelector('iframe');
+    if (!frame) return;
+    var loads = 0;
+    var showTimer;
+    panel.classList.add('is-pending');
+    showTimer = setTimeout(function () { panel.classList.remove('is-pending'); }, 8000);
+    frame.addEventListener('load', function () {
+      loads++;
+      clearTimeout(showTimer);
+      panel.classList.remove('is-pending');
+      if (loads > 1) {
+        panel.classList.toggle('is-sent', loads % 2 === 0);
+        var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        panel.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'start' });
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>

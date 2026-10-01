@@ -559,24 +559,6 @@ body.djb-noscroll { overflow: hidden; }
    Shared content components
    -------------------------------------------------------------------------- */
 
-/* Checklist — a square red pip and a rule under each item */
-.djb-checklist { list-style: none; margin: 0; padding: 0; }
-.djb-check-item {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--djb-stucco);
-}
-.djb-check-item::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  background: var(--djb-red);
-  transform: translateY(-1px);
-}
-
 /* Numbered step */
 .djb-step__n {
   width: 34px;
@@ -673,7 +655,6 @@ body.djb-noscroll { overflow: hidden; }
   .djb-footer__brand p { max-width: none; }
   .djb-footer__base { flex-direction: column; align-items: flex-start; }
 
-  .djb-check-item { padding: 16px 0; }
   .djb-faq summary { font-size: 17px; }
 }
 
